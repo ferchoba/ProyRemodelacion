@@ -153,6 +153,141 @@ Creamos baños elegantes que combinan confort y diseño contemporáneo.
     });
   }
 
+  // Seed some example projects
+  const proyectos = [
+    {
+      slug: 'remodelacion-cocina-moderna-bogota',
+      titulo: 'Remodelación de Cocina Moderna en Bogotá',
+      descripcion_md: `
+# Remodelación de Cocina Moderna en Bogotá
+
+Este proyecto consistió en la **transformación completa** de una cocina tradicional en un espacio moderno y funcional.
+
+## Características del proyecto
+
+- **Área**: 15 m²
+- **Duración**: 3 semanas
+- **Estilo**: Moderno minimalista
+
+## Trabajos realizados
+
+### Demolición y preparación
+- Demolición de muebles antiguos
+- Renovación de instalaciones eléctricas
+- Actualización de plomería
+
+### Instalación de nuevos elementos
+- Muebles modulares en melamina blanca
+- Encimera en cuarzo blanco
+- Electrodomésticos empotrados
+- Iluminación LED bajo muebles
+
+### Acabados
+- Pintura en tonos neutros
+- Piso en porcelanato imitación madera
+- Backsplash en cerámica tipo subway
+
+## Resultado
+
+Una cocina completamente renovada que maximiza el espacio disponible y ofrece una experiencia culinaria moderna y eficiente.
+      `,
+      imagen_portada_url: '/images/proyectos/cocina-moderna-1.jpg',
+      galeria_urls: '[]',
+      tipo_servicio_slug: 'renovacion-cocinas',
+      fecha_finalizacion: new Date('2024-01-15'),
+    },
+    {
+      slug: 'remodelacion-bano-principal-medellin',
+      titulo: 'Remodelación de Baño Principal en Medellín',
+      descripcion_md: `
+# Remodelación de Baño Principal en Medellín
+
+Transformación completa de un baño principal, creando un espacio elegante y relajante.
+
+## Detalles del proyecto
+
+- **Área**: 8 m²
+- **Duración**: 2 semanas
+- **Estilo**: Contemporáneo elegante
+
+## Elementos destacados
+
+### Sanitarios y grifería
+- Sanitario de una pieza
+- Lavamanos doble con mueble flotante
+- Grifería cromada de alta gama
+- Ducha tipo lluvia
+
+### Acabados premium
+- Porcelanato rectificado 60x60
+- Enchapes en porcelanato tipo mármol
+- Mampara en vidrio templado
+- Iluminación LED perimetral
+
+## Resultado final
+
+Un baño moderno que combina funcionalidad y elegancia, creando un verdadero oasis de relajación.
+      `,
+      imagen_portada_url: '/images/proyectos/bano-principal-1.jpg',
+      galeria_urls: '[]',
+      tipo_servicio_slug: 'renovacion-banos',
+      fecha_finalizacion: new Date('2024-02-28'),
+    },
+    {
+      slug: 'remodelacion-integral-apartamento-cali',
+      titulo: 'Remodelación Integral de Apartamento en Cali',
+      descripcion_md: `
+# Remodelación Integral de Apartamento en Cali
+
+Proyecto de remodelación completa de un apartamento de 80 m², modernizando todos los espacios.
+
+## Alcance del proyecto
+
+- **Área total**: 80 m²
+- **Duración**: 8 semanas
+- **Espacios**: Sala, comedor, cocina, 2 habitaciones, 2 baños
+
+## Trabajos realizados
+
+### Espacios sociales
+- Integración de sala y comedor
+- Cocina abierta con isla
+- Pisos en porcelanato rectificado
+
+### Habitaciones
+- Closets empotrados
+- Iluminación LED
+- Pintura en colores neutros
+
+### Baños
+- Renovación completa
+- Acabados modernos
+- Optimización de espacios
+
+### Instalaciones
+- Renovación eléctrica completa
+- Actualización de plomería
+- Sistema de aire acondicionado
+
+## Resultado
+
+Un apartamento completamente renovado con espacios modernos, funcionales y llenos de luz natural.
+      `,
+      imagen_portada_url: '/images/proyectos/apartamento-integral-1.jpg',
+      galeria_urls: '[]',
+      tipo_servicio_slug: 'remodelaciones-integrales',
+      fecha_finalizacion: new Date('2024-03-20'),
+    },
+  ];
+
+  for (const proyecto of proyectos) {
+    await prisma.proyecto.upsert({
+      where: { slug: proyecto.slug },
+      update: {},
+      create: proyecto,
+    });
+  }
+
   console.log('✅ Seed completed successfully!');
 }
 

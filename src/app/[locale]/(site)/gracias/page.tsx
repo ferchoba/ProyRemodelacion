@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
-import { useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/routing';
+import ConversionTracker from '@/components/analytics/ConversionTracker';
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('thanks');
@@ -16,11 +16,12 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function ThanksPage() {
-  const t = useTranslations('thanks');
+export default async function ThanksPage() {
+  const t = await getTranslations('thanks');
 
   return (
     <div className="section-padding">
+      <ConversionTracker />
       <div className="container-custom">
         <div className="max-w-2xl mx-auto text-center">
           <div className="mb-8">

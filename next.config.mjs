@@ -21,12 +21,12 @@ const nextConfig = {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/",
+              "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com https://www.gstatic.com",
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               "font-src 'self' https://fonts.gstatic.com",
-              "img-src 'self' data: blob: https://www.google-analytics.com",
-              "connect-src 'self' https://www.google-analytics.com https://analytics.google.com",
-              "frame-src https://www.google.com/recaptcha/",
+              "img-src 'self' data: blob: https://www.google-analytics.com https://www.google.com https://www.gstatic.com",
+              "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.google.com https://www.gstatic.com https://www.recaptcha.net",
+              "frame-src https://www.google.com https://recaptcha.google.com https://www.recaptcha.net",
             ].join('; '),
           },
           {

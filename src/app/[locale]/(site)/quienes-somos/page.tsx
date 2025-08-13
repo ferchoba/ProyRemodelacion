@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { useTranslations } from 'next-intl';
 import { getTranslations } from 'next-intl/server';
 import { getQuienesSomosContent } from '@/lib/repos/quienes-somos';
 import MarkdownRenderer from '@/components/ui/MarkdownRenderer';
@@ -24,7 +23,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function AboutPage() {
-  const t = useTranslations('about');
+  const t = await getTranslations('about');
   const content = await getQuienesSomosContent();
 
   // Fallback content if no database content is available

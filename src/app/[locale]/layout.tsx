@@ -102,6 +102,14 @@ export default async function RootLayout({
             src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY_V3}`}
           />
         )}
+
+        {/* reCAPTCHA v2 (fallback) */}
+        {process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY_V2 && (
+          <script
+            async
+            src="https://www.google.com/recaptcha/api.js"
+          />
+        )}
       </head>
       <body className="min-h-screen bg-raisin-black text-platinum antialiased">
         <NextIntlClientProvider messages={messages}>

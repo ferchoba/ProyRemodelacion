@@ -60,10 +60,14 @@
     "subtitle": "Estamos aquí para ayudarte con tu proyecto",
     "form": {
       "name": "Nombre completo",
+      "name_placeholder": "Tu nombre completo",
       "email": "Correo electrónico",
+      "email_placeholder": "tu@email.com",
       "phone": "Teléfono",
+      "phone_placeholder": "+57 300 123 4567",
       "service": "Tipo de servicio",
       "message": "Mensaje",
+      "message_placeholder": "Cuéntanos en qué podemos ayudarte...",
       "description": "Descripción del proyecto",
       "submit": "Enviar Mensaje",
       "submit_quote": "Solicitar Cotización",
@@ -71,8 +75,10 @@
       "invalid_email": "Correo electrónico inválido",
       "invalid_phone": "Teléfono inválido",
       "sending": "Enviando...",
+      "send": "Enviar Mensaje",
       "success": "Mensaje enviado correctamente",
-      "error": "Error al enviar el mensaje. Inténtelo de nuevo."
+      "error": "Error al enviar el mensaje. Inténtelo de nuevo.",
+      "privacy_notice": "Al enviar este formulario, aceptas nuestra política de privacidad y el tratamiento de tus datos personales."
     },
     "info": {
       "title": "Información de Contacto",
@@ -88,6 +94,26 @@
     "general": {
       "title": "Contacto General",
       "subtitle": "¿Tienes alguna pregunta? Escríbenos"
+    }
+  },
+  "quote": {
+    "form": {
+      "name": "Nombre completo",
+      "name_placeholder": "Tu nombre completo",
+      "email": "Correo electrónico",
+      "email_placeholder": "tu@email.com",
+      "phone": "Teléfono",
+      "phone_placeholder": "+57 300 123 4567",
+      "service_type": "Tipo de Servicio",
+      "service_type_placeholder": "Selecciona un servicio",
+      "project_description": "Descripción del Proyecto",
+      "project_description_placeholder": "Describe detalladamente tu proyecto: dimensiones, materiales preferidos, estilo, etc.",
+      "estimated_budget": "Presupuesto Estimado",
+      "estimated_budget_placeholder": "Selecciona un rango",
+      "start_date": "Fecha de Inicio Deseada",
+      "send": "Solicitar Cotización",
+      "sending": "Enviando Solicitud...",
+      "privacy_notice": "Al enviar este formulario, aceptas nuestra política de privacidad y el tratamiento de tus datos personales."
     }
   },
   "thanks": {
