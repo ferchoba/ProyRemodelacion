@@ -1,0 +1,135 @@
+{
+  "navigation": {
+    "home": "Home",
+    "services": "Services",
+    "projects": "Projects",
+    "about": "About Us",
+    "contact": "Contact",
+    "menu": "Menu",
+    "close": "Close"
+  },
+  "home": {
+    "hero": {
+      "title": "Transform your spaces with exceptional quality",
+      "subtitle": "Specialists in remodeling and construction of residential, commercial and office spaces. We make your vision a reality with exceptional craftsmanship and personalized solutions.",
+      "cta": "Request Quote",
+      "cta_secondary": "View Projects"
+    },
+    "services": {
+      "title": "Our Services",
+      "subtitle": "Complete solutions to transform your spaces",
+      "view_all": "View All Services"
+    },
+    "projects": {
+      "title": "Featured Projects",
+      "subtitle": "Discover some of our most recent work",
+      "view_all": "View All Projects"
+    },
+    "about": {
+      "title": "Why choose Algecira Construcciones?",
+      "experience": "Years of experience in the sector",
+      "quality": "High quality materials",
+      "team": "Team of expert professionals",
+      "guarantee": "Guarantee on all our work"
+    },
+    "contact": {
+      "title": "Ready to start your project?",
+      "subtitle": "Contact us today for a free consultation",
+      "cta": "Contact Now"
+    }
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Complete remodeling and construction solutions",
+    "read_more": "Read More",
+    "request_quote": "Request Quote"
+  },
+  "projects": {
+    "title": "Our Projects",
+    "subtitle": "Gallery of completed work",
+    "filter_all": "All",
+    "view_details": "View Details",
+    "completed_on": "Completed on"
+  },
+  "about": {
+    "title": "About Us",
+    "subtitle": "Learn more about Algecira Construcciones"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "We're here to help you with your project",
+    "form": {
+      "name": "Full name",
+      "email": "Email address",
+      "phone": "Phone",
+      "service": "Service type",
+      "message": "Message",
+      "description": "Project description",
+      "submit": "Send Message",
+      "submit_quote": "Request Quote",
+      "required": "Required field",
+      "invalid_email": "Invalid email address",
+      "invalid_phone": "Invalid phone number",
+      "sending": "Sending...",
+      "success": "Message sent successfully",
+      "error": "Error sending message. Please try again."
+    },
+    "info": {
+      "title": "Contact Information",
+      "phone": "Phone",
+      "email": "Email",
+      "whatsapp": "WhatsApp",
+      "whatsapp_text": "Message on WhatsApp"
+    },
+    "quote": {
+      "title": "Request Quote",
+      "subtitle": "Tell us about your project and we'll contact you"
+    },
+    "general": {
+      "title": "General Contact",
+      "subtitle": "Have any questions? Write to us"
+    }
+  },
+  "thanks": {
+    "title": "Thank you for contacting us!",
+    "message": "We have received your message and will contact you soon.",
+    "quote_message": "We have received your quote request. Our team will review it and contact you within the next 24 hours.",
+    "back_home": "Back to Home",
+    "estimated_response": "Estimated response time: 24 hours"
+  },
+  "footer": {
+    "company": "Algecira Construcciones",
+    "description": "We transform spaces with exceptional quality. Specialists in remodeling and construction.",
+    "quick_links": "Quick Links",
+    "contact_info": "Contact Information",
+    "follow_us": "Follow Us",
+    "privacy": "Privacy Policy",
+    "terms": "Terms and Conditions",
+    "rights": "All rights reserved"
+  },
+  "legal": {
+    "privacy": {
+      "title": "Privacy Policy",
+      "last_updated": "Last updated"
+    },
+    "terms": {
+      "title": "Terms and Conditions",
+      "last_updated": "Last updated"
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "try_again": "Try again",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "close": "Close",
+    "open": "Open",
+    "more": "More",
+    "less": "Less",
+    "read_more": "Read more",
+    "show_more": "Show more",
+    "show_less": "Show less"
+  }
+}

@@ -1,0 +1,135 @@
+{
+  "navigation": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "projects": "Proyectos",
+    "about": "Quiénes Somos",
+    "contact": "Contacto",
+    "menu": "Menú",
+    "close": "Cerrar"
+  },
+  "home": {
+    "hero": {
+      "title": "Transformamos sus espacios con calidad excepcional",
+      "subtitle": "Especialistas en remodelación y construcción de espacios residenciales, comerciales y de oficina. Hacemos realidad su visión con artesanía excepcional y soluciones personalizadas.",
+      "cta": "Solicitar Cotización",
+      "cta_secondary": "Ver Proyectos"
+    },
+    "services": {
+      "title": "Nuestros Servicios",
+      "subtitle": "Soluciones completas para transformar sus espacios",
+      "view_all": "Ver Todos los Servicios"
+    },
+    "projects": {
+      "title": "Proyectos Destacados",
+      "subtitle": "Descubra algunos de nuestros trabajos más recientes",
+      "view_all": "Ver Todos los Proyectos"
+    },
+    "about": {
+      "title": "¿Por qué elegir Algecira Construcciones?",
+      "experience": "Años de experiencia en el sector",
+      "quality": "Materiales de alta calidad",
+      "team": "Equipo de profesionales expertos",
+      "guarantee": "Garantía en todos nuestros trabajos"
+    },
+    "contact": {
+      "title": "¿Listo para comenzar su proyecto?",
+      "subtitle": "Contáctenos hoy mismo para una consulta gratuita",
+      "cta": "Contactar Ahora"
+    }
+  },
+  "services": {
+    "title": "Nuestros Servicios",
+    "subtitle": "Soluciones completas de remodelación y construcción",
+    "read_more": "Leer Más",
+    "request_quote": "Solicitar Cotización"
+  },
+  "projects": {
+    "title": "Nuestros Proyectos",
+    "subtitle": "Galería de trabajos realizados",
+    "filter_all": "Todos",
+    "view_details": "Ver Detalles",
+    "completed_on": "Completado en"
+  },
+  "about": {
+    "title": "Quiénes Somos",
+    "subtitle": "Conoce más sobre Algecira Construcciones"
+  },
+  "contact": {
+    "title": "Contáctanos",
+    "subtitle": "Estamos aquí para ayudarte con tu proyecto",
+    "form": {
+      "name": "Nombre completo",
+      "email": "Correo electrónico",
+      "phone": "Teléfono",
+      "service": "Tipo de servicio",
+      "message": "Mensaje",
+      "description": "Descripción del proyecto",
+      "submit": "Enviar Mensaje",
+      "submit_quote": "Solicitar Cotización",
+      "required": "Campo requerido",
+      "invalid_email": "Correo electrónico inválido",
+      "invalid_phone": "Teléfono inválido",
+      "sending": "Enviando...",
+      "success": "Mensaje enviado correctamente",
+      "error": "Error al enviar el mensaje. Inténtelo de nuevo."
+    },
+    "info": {
+      "title": "Información de Contacto",
+      "phone": "Teléfono",
+      "email": "Correo",
+      "whatsapp": "WhatsApp",
+      "whatsapp_text": "Escribir por WhatsApp"
+    },
+    "quote": {
+      "title": "Solicitar Cotización",
+      "subtitle": "Cuéntanos sobre tu proyecto y te contactaremos"
+    },
+    "general": {
+      "title": "Contacto General",
+      "subtitle": "¿Tienes alguna pregunta? Escríbenos"
+    }
+  },
+  "thanks": {
+    "title": "¡Gracias por contactarnos!",
+    "message": "Hemos recibido tu mensaje y nos pondremos en contacto contigo pronto.",
+    "quote_message": "Hemos recibido tu solicitud de cotización. Nuestro equipo la revisará y te contactaremos en las próximas 24 horas.",
+    "back_home": "Volver al Inicio",
+    "estimated_response": "Tiempo estimado de respuesta: 24 horas"
+  },
+  "footer": {
+    "company": "Algecira Construcciones",
+    "description": "Transformamos espacios con calidad excepcional. Especialistas en remodelación y construcción.",
+    "quick_links": "Enlaces Rápidos",
+    "contact_info": "Información de Contacto",
+    "follow_us": "Síguenos",
+    "privacy": "Política de Privacidad",
+    "terms": "Términos y Condiciones",
+    "rights": "Todos los derechos reservados"
+  },
+  "legal": {
+    "privacy": {
+      "title": "Política de Privacidad",
+      "last_updated": "Última actualización"
+    },
+    "terms": {
+      "title": "Términos y Condiciones",
+      "last_updated": "Última actualización"
+    }
+  },
+  "common": {
+    "loading": "Cargando...",
+    "error": "Error",
+    "try_again": "Intentar de nuevo",
+    "back": "Volver",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "close": "Cerrar",
+    "open": "Abrir",
+    "more": "Más",
+    "less": "Menos",
+    "read_more": "Leer más",
+    "show_more": "Mostrar más",
+    "show_less": "Mostrar menos"
+  }
+}

@@ -1,0 +1,84 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Parametro {
+  clave       String  @id
+  valor       String
+  descripcion String?
+
+  @@map("parametros")
+}
+
+model Servicio {
+  id                   Int       @id @default(autoincrement())
+  slug                 String    @unique
+  titulo               String
+  descripcion_corta    String?
+  contenido_md         String
+  imagen_principal_url String?
+  etiquetas            String    @default("[]") // JSON array as string
+  activo               Boolean   @default(true)
+  created_at           DateTime  @default(now())
+  updated_at           DateTime  @updatedAt
+  
+  // Relation to projects
+  proyectos            Proyecto[]
+
+  @@map("servicios")
+}
+
+model Proyecto {
+  id                   Int       @id @default(autoincrement())
+  slug                 String    @unique
+  titulo               String
+  descripcion_md       String
+  imagen_portada_url   String?
+  galeria_urls         String    @default("[]") // JSON array as string
+  tipo_servicio_slug   String
+  fecha_finalizacion   DateTime?
+  activo               Boolean   @default(true)
+  created_at           DateTime  @default(now())
+  updated_at           DateTime  @updatedAt
+  
+  // Relation to service
+  servicio             Servicio  @relation(fields: [tipo_servicio_slug], references: [slug])
+
+  @@map("proyectos")
+}
+
+model QuienesSomos {
+  id               Int     @id @default(autoincrement())
+  titulo           String
+  contenido_md     String
+  imagen_equipo_url String?
+  activo           Boolean @default(true)
+  created_at       DateTime @default(now())
+  updated_at       DateTime @updatedAt
+
+  @@map("quienes_somos")
+}
+
+model Formulario {
+  id              Int      @id @default(autoincrement())
+  tipo            String   // 'cotizacion' | 'contacto'
+  nombre          String
+  email           String
+  telefono        String?
+  tipo_servicio   String?
+  descripcion     String
+  fecha_envio     DateTime @default(now())
+  ip              String?
+  recaptcha_score Float?
+  estado          String   @default("recibido") // 'recibido' | 'contactado'
+
+  @@map("formularios")
+}
