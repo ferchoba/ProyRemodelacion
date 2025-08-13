@@ -39,6 +39,10 @@ export const routing = defineRouting({
       es: '/contacto',
       en: '/contact'
     },
+    '/cotizacion': {
+      es: '/cotizacion',
+      en: '/quote'
+    },
     '/gracias': {
       es: '/gracias',
       en: '/thank-you'

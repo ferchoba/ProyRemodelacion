@@ -5,6 +5,7 @@
     "projects": "Proyectos",
     "about": "Quiénes Somos",
     "contact": "Contacto",
+    "quote": "Cotización",
     "menu": "Menú",
     "close": "Cerrar"
   },
@@ -97,6 +98,16 @@
     }
   },
   "quote": {
+    "title": "Solicitar Cotización",
+    "subtitle": "Obtén una cotización personalizada para tu proyecto de construcción o remodelación",
+    "form_title": "Formulario de Cotización",
+    "form_description": "Completa los siguientes datos y nos pondremos en contacto contigo en las próximas 24 horas",
+    "feature_1_title": "Cotización Gratuita",
+    "feature_1_description": "Evaluamos tu proyecto sin costo alguno",
+    "feature_2_title": "Presupuesto Detallado",
+    "feature_2_description": "Recibirás un presupuesto completo y transparente",
+    "feature_3_title": "Respuesta Rápida",
+    "feature_3_description": "Te contactamos en menos de 24 horas",
     "form": {
       "name": "Nombre completo",
       "name_placeholder": "Tu nombre completo",

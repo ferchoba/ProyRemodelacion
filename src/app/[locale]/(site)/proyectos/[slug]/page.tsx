@@ -158,7 +158,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
                 <p className="text-quick-silver mb-6">
                   Podemos crear algo similar para ti. Solicita una cotización gratuita y sin compromiso.
                 </p>
-                <div className="space-y-3">
+                <div className="space-y-4">
                   <Link
                     href="/contacto"
                     className="btn btn-primary w-full text-center"

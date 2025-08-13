@@ -159,16 +159,16 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
                 <p className="text-quick-silver mb-6">
                   Solicita una cotización gratuita y sin compromiso. Nuestro equipo te contactará en menos de 24 horas.
                 </p>
-                <div className="space-y-3">
+                <div className="space-y-4">
                   <Link
                     href="/contacto"
-                    className="btn btn-primary w-full text-center"
+                    className="btn btn-primary w-full text-center min-h-[48px] flex items-center justify-center"
                   >
                     {t('request_quote')}
                   </Link>
                   <Link
                     href="/contacto"
-                    className="btn btn-secondary w-full text-center"
+                    className="btn btn-secondary w-full text-center min-h-[48px] flex items-center justify-center"
                   >
                     {tContact('title')}
                   </Link>

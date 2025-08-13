@@ -15,6 +15,7 @@ const Footer = () => {
     { name: tNav('projects'), href: '/proyectos' },
     { name: tNav('about'), href: '/quienes-somos' },
     { name: tNav('contact'), href: '/contacto' },
+    { name: tNav('quote'), href: '/cotizacion' },
   ];
 
   const legalLinks = [

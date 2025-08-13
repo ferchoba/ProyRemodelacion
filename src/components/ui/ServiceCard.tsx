@@ -74,7 +74,7 @@ export default function ServiceCard({ servicio }: ServiceCardProps) {
         )}
 
         {/* Botones de acción */}
-        <div className="flex flex-col sm:flex-row gap-3 mt-auto">
+        <div className="flex flex-col sm:flex-row gap-4 mt-auto">
           <Link
             href={`/servicios/${servicio.slug}`}
             className="btn btn-primary flex-1 text-center"

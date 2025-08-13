@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import ContactForm from '@/components/forms/ContactForm';
-import QuoteForm from '@/components/forms/QuoteForm';
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('contact');
@@ -35,33 +34,19 @@ export default async function ContactPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Formulario de Contacto */}
-            <div className="bg-white rounded-lg shadow-lg p-8">
+          {/* Formulario de Contacto */}
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-white rounded-lg shadow-lg p-8 md:p-12">
               <div className="text-center mb-8">
                 <h2 className="text-2xl font-bold text-platinum mb-4">
-                  Formulario de Contacto
+                  {t('general.title')}
                 </h2>
                 <p className="text-quick-silver">
-                  Para consultas generales, dudas o información sobre nuestros servicios.
+                  {t('general.subtitle')}
                 </p>
               </div>
 
               <ContactForm />
-            </div>
-
-            {/* Formulario de Cotización */}
-            <div className="bg-white rounded-lg shadow-lg p-8">
-              <div className="text-center mb-8">
-                <h2 className="text-2xl font-bold text-platinum mb-4">
-                  Solicitar Cotización
-                </h2>
-                <p className="text-quick-silver">
-                  Para solicitar presupuestos detallados de proyectos específicos.
-                </p>
-              </div>
-
-              <QuoteForm />
             </div>
           </div>
 

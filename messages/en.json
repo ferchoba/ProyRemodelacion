@@ -5,6 +5,7 @@
     "projects": "Projects",
     "about": "About Us",
     "contact": "Contact",
+    "quote": "Quote",
     "menu": "Menu",
     "close": "Close"
   },
@@ -88,6 +89,36 @@
     "general": {
       "title": "General Contact",
       "subtitle": "Have any questions? Write to us"
+    }
+  },
+  "quote": {
+    "title": "Request Quote",
+    "subtitle": "Get a personalized quote for your construction or remodeling project",
+    "form_title": "Quote Form",
+    "form_description": "Complete the following information and we'll contact you within the next 24 hours",
+    "feature_1_title": "Free Quote",
+    "feature_1_description": "We evaluate your project at no cost",
+    "feature_2_title": "Detailed Budget",
+    "feature_2_description": "You'll receive a complete and transparent budget",
+    "feature_3_title": "Quick Response",
+    "feature_3_description": "We contact you in less than 24 hours",
+    "form": {
+      "name": "Full name",
+      "name_placeholder": "Your full name",
+      "email": "Email address",
+      "email_placeholder": "your@email.com",
+      "phone": "Phone",
+      "phone_placeholder": "+57 300 123 4567",
+      "service_type": "Service Type",
+      "service_type_placeholder": "Select a service",
+      "project_description": "Project Description",
+      "project_description_placeholder": "Describe your project in detail: dimensions, preferred materials, style, etc.",
+      "estimated_budget": "Estimated Budget",
+      "estimated_budget_placeholder": "Select a range",
+      "start_date": "Desired Start Date",
+      "send": "Request Quote",
+      "sending": "Sending Request...",
+      "privacy_notice": "By submitting this form, you accept our privacy policy and the processing of your personal data."
     }
   },
   "thanks": {

@@ -15,6 +15,7 @@ const Header = () => {
     { name: t('projects'), href: '/proyectos' },
     { name: t('about'), href: '/quienes-somos' },
     { name: t('contact'), href: '/contacto' },
+    { name: t('quote'), href: '/cotizacion' },
   ];
 
   return (
@@ -59,10 +60,16 @@ const Header = () => {
           </div>
 
           {/* CTA Button */}
-          <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-4">
+            <Link
+              href="/cotizacion"
+              className="btn btn-secondary text-sm font-semibold min-h-[40px]"
+            >
+              {t('quote')}
+            </Link>
             <Link
               href="/contacto"
-              className="btn btn-primary text-sm font-semibold"
+              className="btn btn-primary text-sm font-semibold min-h-[40px]"
             >
               {t('contact')}
             </Link>
@@ -105,7 +112,14 @@ const Header = () => {
                       </Link>
                     ))}
                   </div>
-                  <div className="py-6">
+                  <div className="py-6 space-y-4">
+                    <Link
+                      href="/cotizacion"
+                      className="btn btn-secondary w-full text-center"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {t('quote')}
+                    </Link>
                     <Link
                       href="/contacto"
                       className="btn btn-primary w-full text-center"
