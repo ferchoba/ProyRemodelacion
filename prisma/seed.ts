@@ -156,219 +156,231 @@ Creamos baños elegantes que combinan confort y diseño contemporáneo.
   // Seed some example projects
   const proyectos = [
     {
-      slug: 'remodelacion-cocina-moderna-bogota',
-      titulo: 'Remodelación de Cocina Moderna en Bogotá',
+      slug: 'universidad-santo-tomas-tunja',
+      titulo: 'UNIVERSIDAD SANTO TOMAS DE TUNJA',
       descripcion_md: `
-# Remodelación de Cocina Moderna en Bogotá
+# UNIVERSIDAD SANTO TOMAS DE TUNJA
 
-Este proyecto consistió en la **transformación completa** de una cocina tradicional en un espacio moderno y funcional.
+Proyecto de remodelación integral para la Universidad Santo Tomás de Tunja, enfocado en la modernización de espacios académicos con técnicas constructivas avanzadas.
 
-## Características del proyecto
+## Servicios Incluidos
 
-- **Área**: 15 m²
-- **Duración**: 3 semanas
-- **Estilo**: Moderno minimalista
+### Mampostería y Estructuras Internas
+- **MAMPOSTERÍA INTERNA**: Construcción y reforzamiento de muros interiores para optimizar la distribución de espacios académicos
+- **PAÑETES INTERNOS**: Aplicación de recubrimientos interiores de alta calidad para acabados duraderos y estéticamente superiores
 
-## Trabajos realizados
+### Acabados Exteriores
+- **PAÑETES FACHADA**: Renovación completa de fachadas con materiales resistentes a la intemperie y técnicas modernas de aplicación
 
-### Demolición y preparación
-- Demolición de muebles antiguos
-- Renovación de instalaciones eléctricas
-- Actualización de plomería
+## Características del Proyecto
 
-### Instalación de nuevos elementos
-- Muebles modulares en melamina blanca
-- Encimera en cuarzo blanco
-- Electrodomésticos empotrados
-- Iluminación LED bajo muebles
-
-### Acabados
-- Pintura en tonos neutros
-- Piso en porcelanato imitación madera
-- Backsplash en cerámica tipo subway
+- **Tipo**: Remodelación integral educativa
+- **Alcance**: Modernización de espacios académicos y administrativos
+- **Calidad**: Materiales especializados para uso institucional intensivo
+- **Diseño**: Arquitectura funcional adaptada a necesidades educativas
 
 ## Resultado
 
-Una cocina completamente renovada que maximiza el espacio disponible y ofrece una experiencia culinaria moderna y eficiente.
+Un espacio educativo renovado que combina funcionalidad, durabilidad y estética, proporcionando un ambiente óptimo para el desarrollo académico.
       `,
-      imagen_portada_url: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&h=600&fit=crop&crop=center',
-      galeria_urls: '[]',
-      tipo_servicio_slug: 'renovacion-cocinas',
-      fecha_finalizacion: new Date('2024-01-15'),
-    },
-    {
-      slug: 'remodelacion-bano-principal-medellin',
-      titulo: 'Remodelación de Baño Principal en Medellín',
-      descripcion_md: `
-# Remodelación de Baño Principal en Medellín
-
-Transformación completa de un baño principal, creando un espacio elegante y relajante.
-
-## Detalles del proyecto
-
-- **Área**: 8 m²
-- **Duración**: 2 semanas
-- **Estilo**: Contemporáneo elegante
-
-## Elementos destacados
-
-### Sanitarios y grifería
-- Sanitario de una pieza
-- Lavamanos doble con mueble flotante
-- Grifería cromada de alta gama
-- Ducha tipo lluvia
-
-### Acabados premium
-- Porcelanato rectificado 60x60
-- Enchapes en porcelanato tipo mármol
-- Mampara en vidrio templado
-- Iluminación LED perimetral
-
-## Resultado final
-
-Un baño moderno que combina funcionalidad y elegancia, creando un verdadero oasis de relajación.
-      `,
-      imagen_portada_url: 'https://images.unsplash.com/photo-1620626011761-996317b8d101?w=800&h=600&fit=crop&crop=center',
-      galeria_urls: '[]',
-      tipo_servicio_slug: 'renovacion-banos',
-      fecha_finalizacion: new Date('2024-02-28'),
-    },
-    {
-      slug: 'remodelacion-integral-apartamento-cali',
-      titulo: 'Remodelación Integral de Apartamento en Cali',
-      descripcion_md: `
-# Remodelación Integral de Apartamento en Cali
-
-Proyecto de remodelación completa de un apartamento de 80 m², modernizando todos los espacios.
-
-## Alcance del proyecto
-
-- **Área total**: 80 m²
-- **Duración**: 8 semanas
-- **Espacios**: Sala, comedor, cocina, 2 habitaciones, 2 baños
-
-## Trabajos realizados
-
-### Espacios sociales
-- Integración de sala y comedor
-- Cocina abierta con isla
-- Pisos en porcelanato rectificado
-
-### Habitaciones
-- Closets empotrados
-- Iluminación LED
-- Pintura en colores neutros
-
-### Baños
-- Renovación completa
-- Acabados modernos
-- Optimización de espacios
-
-### Instalaciones
-- Renovación eléctrica completa
-- Actualización de plomería
-- Sistema de aire acondicionado
-
-## Resultado
-
-Un apartamento completamente renovado con espacios modernos, funcionales y llenos de luz natural.
-      `,
-      imagen_portada_url: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&h=600&fit=crop&crop=center',
-      galeria_urls: '[]',
+      imagen_portada_url: 'https://res.cloudinary.com/dq5joejf7/image/upload/v1755128643/img1_gq88im.jpg',
+      galeria_urls: '["https://res.cloudinary.com/dq5joejf7/image/upload/v1755128641/img2_dmdh4x.jpg", "https://res.cloudinary.com/dq5joejf7/image/upload/v1755128641/img3_dlsj20.jpg"]',
       tipo_servicio_slug: 'remodelaciones-integrales',
-      fecha_finalizacion: new Date('2024-03-20'),
+      fecha_finalizacion: new Date('2024-11-20'),
     },
     {
-      slug: 'apartamento-integral-moderno',
-      titulo: 'Apartamento Integral Moderno',
+      slug: 'entreparques',
+      titulo: 'ENTREPARQUES',
       descripcion_md: `
-# Apartamento Integral Moderno
+# ENTREPARQUES
 
-Remodelación completa de apartamento con diseño contemporáneo y funcional.
+Proyecto de remodelación integral del complejo residencial Entreparques, combinando técnicas modernas de mampostería y acabados de alta calidad.
 
-## Características
+## Servicios Incluidos
 
-- **Área**: 75 m²
-- **Duración**: 6 semanas
-- **Estilo**: Moderno contemporáneo
+### Mampostería Especializada
+- **MAMPOSTERÍA INTERNA**: Construcción de muros interiores con técnicas avanzadas para optimización de espacios residenciales
+- **MAMPOSTERÍA FACHADA**: Renovación de fachadas exteriores con materiales de primera calidad y diseño contemporáneo
+
+### Acabados Interiores
+- **PAÑETES INTERNOS**: Aplicación de recubrimientos interiores con acabados lisos y duraderos para espacios habitacionales
+
+## Características del Proyecto
+
+- **Tipo**: Remodelación residencial integral
+- **Alcance**: Renovación completa de estructuras internas y externas
+- **Calidad**: Materiales premium para uso residencial
+- **Diseño**: Arquitectura moderna y funcional
 
 ## Resultado
 
-Espacios integrados con acabados de alta calidad y diseño funcional.
+Un complejo residencial completamente renovado que ofrece espacios modernos, confortables y estéticamente atractivos para sus habitantes.
       `,
-      imagen_portada_url: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&h=600&fit=crop&crop=center',
-      galeria_urls: '["https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&h=600&fit=crop&crop=center", "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&h=600&fit=crop&crop=center"]',
+      imagen_portada_url: 'https://res.cloudinary.com/dq5joejf7/image/upload/v1755128765/img1_tdleuv.jpg',
+      galeria_urls: '["https://res.cloudinary.com/dq5joejf7/image/upload/v1755128764/img2_duomt1.jpg"]',
       tipo_servicio_slug: 'remodelaciones-integrales',
-      fecha_finalizacion: new Date('2024-03-20'),
+      fecha_finalizacion: new Date('2024-10-15'),
     },
     {
-      slug: 'cocina-contemporanea-lujo',
-      titulo: 'Cocina Contemporánea de Lujo',
+      slug: 'mega-colegio-san-marcos-funza',
+      titulo: 'MEGA COLEGIO SAN MARCOS FUNZA',
       descripcion_md: `
-# Cocina Contemporánea de Lujo
+# MEGA COLEGIO SAN MARCOS FUNZA
 
-Diseño de cocina moderna con acabados premium y electrodomésticos de alta gama.
+Proyecto de construcción integral para el Mega Colegio San Marcos en Funza, desarrollando infraestructura educativa de gran escala con los más altos estándares constructivos.
 
-## Características
+## Servicios Incluidos
 
-- **Área**: 20 m²
-- **Duración**: 4 semanas
-- **Estilo**: Contemporáneo de lujo
+### Estructura y Cimentación
+- **CIMENTACIÓN**: Diseño y construcción de cimentaciones especializadas para infraestructura educativa de gran escala
+- **ESTRUCTURA**: Desarrollo del sistema estructural completo adaptado a las necesidades de un mega colegio
+
+### Mampostería Especializada
+- **MAMPOSTERÍA FACHADA A LA VISTA**: Construcción de fachadas con mampostería vista de alta calidad, proporcionando durabilidad y estética institucional
+
+## Características del Proyecto
+
+- **Tipo**: Construcción educativa de gran escala
+- **Alcance**: Infraestructura completa para mega colegio
+- **Calidad**: Materiales y técnicas especializadas para uso educativo intensivo
+- **Diseño**: Arquitectura educativa moderna y funcional
 
 ## Resultado
 
-Cocina funcional con isla central y acabados de lujo.
+Una infraestructura educativa de primer nivel que proporciona espacios óptimos para el aprendizaje, con diseño moderno y construcción duradera.
       `,
-      imagen_portada_url: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&h=600&fit=crop&crop=center',
-      galeria_urls: '["https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&h=600&fit=crop&crop=center", "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&h=600&fit=crop&crop=center", "https://images.unsplash.com/photo-1620626011761-996317b8d101?w=800&h=600&fit=crop&crop=center"]',
-      tipo_servicio_slug: 'renovacion-cocinas',
-      fecha_finalizacion: new Date('2024-04-20'),
-    },
-    {
-      slug: 'bano-spa-relajacion',
-      titulo: 'Baño Spa de Relajación',
-      descripcion_md: `
-# Baño Spa de Relajación
-
-Transformación de baño principal en un spa privado con acabados de lujo.
-
-## Características
-
-- **Área**: 12 m²
-- **Duración**: 3 semanas
-- **Estilo**: Spa contemporáneo
-
-## Resultado
-
-Baño tipo spa con tina de hidromasaje y acabados premium.
-      `,
-      imagen_portada_url: 'https://images.unsplash.com/photo-1620626011761-996317b8d101?w=800&h=600&fit=crop&crop=center',
-      galeria_urls: '["https://images.unsplash.com/photo-1620626011761-996317b8d101?w=800&h=600&fit=crop&crop=center", "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&h=600&fit=crop&crop=center", "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&h=600&fit=crop&crop=center"]',
-      tipo_servicio_slug: 'renovacion-banos',
-      fecha_finalizacion: new Date('2024-03-10'),
-    },
-    {
-      slug: 'casa-moderna-integral',
-      titulo: 'Remodelación Integral Casa Moderna',
-      descripcion_md: `
-# Remodelación Integral Casa Moderna
-
-Proyecto completo de remodelación de casa unifamiliar con diseño moderno.
-
-## Características
-
-- **Área**: 150 m²
-- **Duración**: 12 semanas
-- **Estilo**: Moderno integral
-
-## Resultado
-
-Casa completamente renovada con espacios abiertos y diseño contemporáneo.
-      `,
-      imagen_portada_url: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&h=600&fit=crop&crop=center',
-      galeria_urls: '["https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&h=600&fit=crop&crop=center", "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&h=600&fit=crop&crop=center", "https://images.unsplash.com/photo-1620626011761-996317b8d101?w=800&h=600&fit=crop&crop=center", "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&h=600&fit=crop&crop=center"]',
+      imagen_portada_url: 'https://res.cloudinary.com/dq5joejf7/image/upload/v1755129094/img1_bno9v7.jpg',
+      galeria_urls: '["https://res.cloudinary.com/dq5joejf7/image/upload/v1755129115/img2_eqeigw.jpg", "https://res.cloudinary.com/dq5joejf7/image/upload/v1755129093/img3_amykhm.jpg"]',
       tipo_servicio_slug: 'remodelaciones-integrales',
-      fecha_finalizacion: new Date('2024-06-15'),
+      fecha_finalizacion: new Date('2024-09-10'),
+    },
+    {
+      slug: 'urbanizacion-hacienda-los-lagos',
+      titulo: 'URBANIZACIÓN HACIENDA LOS LAGOS',
+      descripcion_md: `
+# URBANIZACIÓN HACIENDA LOS LAGOS
+
+Proyecto de desarrollo urbano integral para la Urbanización Hacienda Los Lagos, enfocado en la construcción de infraestructura residencial de alta calidad.
+
+## Servicios Incluidos
+
+### Estructura y Cimentación
+- **CIMENTACIÓN**: Diseño y construcción de cimentaciones especializadas para desarrollo residencial, garantizando estabilidad y durabilidad a largo plazo
+- **ESTRUCTURA**: Desarrollo del sistema estructural completo para viviendas unifamiliares y multifamiliares
+
+## Características del Proyecto
+
+- **Tipo**: Desarrollo urbano residencial
+- **Alcance**: Infraestructura completa para urbanización
+- **Calidad**: Materiales y técnicas de construcción de primera calidad
+- **Diseño**: Planificación urbana moderna y sostenible
+
+## Resultado
+
+Una urbanización moderna que ofrece espacios residenciales de alta calidad, con infraestructura sólida y diseño contemporáneo para el bienestar de sus habitantes.
+      `,
+      imagen_portada_url: 'https://res.cloudinary.com/dq5joejf7/image/upload/v1755129209/img1_bm3to1.jpg',
+      galeria_urls: '["https://res.cloudinary.com/dq5joejf7/image/upload/v1755129208/img2_spqsoy.jpg"]',
+      tipo_servicio_slug: 'remodelaciones-integrales',
+      fecha_finalizacion: new Date('2024-08-05'),
+    },
+    {
+      slug: 'urbanza',
+      titulo: 'URBANZA',
+      descripcion_md: `
+# URBANZA
+
+Proyecto de desarrollo urbano Urbanza, especializado en la construcción de cimentaciones para infraestructura residencial y comercial de gran escala.
+
+## Servicios Incluidos
+
+### Cimentación Especializada
+- **CIMENTACIÓN**: Diseño y construcción de sistemas de cimentación avanzados para proyectos de desarrollo urbano, utilizando técnicas modernas y materiales de alta resistencia
+
+## Características del Proyecto
+
+- **Tipo**: Desarrollo urbano integral
+- **Alcance**: Cimentaciones para infraestructura mixta (residencial y comercial)
+- **Calidad**: Técnicas especializadas en cimentación para grandes proyectos
+- **Diseño**: Ingeniería estructural avanzada y planificación urbana sostenible
+
+## Resultado
+
+Un proyecto de desarrollo urbano con cimentaciones sólidas y duraderas, proporcionando la base perfecta para el crecimiento urbano planificado y sostenible.
+      `,
+      imagen_portada_url: 'https://res.cloudinary.com/dq5joejf7/image/upload/v1755129315/img1_evruea.jpg',
+      galeria_urls: '["https://res.cloudinary.com/dq5joejf7/image/upload/v1755129317/img2_zg1xs4.jpg", "https://res.cloudinary.com/dq5joejf7/image/upload/v1755129320/img3_kopuza.jpg", "https://res.cloudinary.com/dq5joejf7/image/upload/v1755129313/img4_t9bxq8.jpg"]',
+      tipo_servicio_slug: 'remodelaciones-integrales',
+      fecha_finalizacion: new Date('2024-07-20'),
+    },
+    {
+      slug: 'edificio-q097',
+      titulo: 'EDIFICIO Q097',
+      descripcion_md: `
+# EDIFICIO Q097
+
+Proyecto de construcción integral del Edificio Q097, desarrollando infraestructura comercial y residencial con sistemas estructurales avanzados.
+
+## Servicios Incluidos
+
+### Estructura y Cimentación
+- **CIMENTACIÓN**: Diseño y construcción de cimentaciones especializadas para edificaciones de mediana altura, garantizando estabilidad estructural óptima
+- **ESTRUCTURA**: Desarrollo del sistema estructural completo para edificio multifuncional con técnicas constructivas modernas
+
+## Características del Proyecto
+
+- **Tipo**: Construcción de edificio multifuncional
+- **Alcance**: Infraestructura completa desde cimentación hasta estructura
+- **Calidad**: Materiales de alta resistencia y técnicas constructivas avanzadas
+- **Diseño**: Arquitectura moderna adaptada a usos mixtos
+
+## Resultado
+
+Un edificio moderno y funcional con estructura sólida y cimentaciones duraderas, diseñado para satisfacer las necesidades de uso comercial y residencial.
+      `,
+      imagen_portada_url: 'https://res.cloudinary.com/dq5joejf7/image/upload/v1755129367/img1_r0sznd.jpg',
+      galeria_urls: '["https://res.cloudinary.com/dq5joejf7/image/upload/v1755129370/img2_uqtews.jpg", "https://res.cloudinary.com/dq5joejf7/image/upload/v1755129365/img3_gqeqlk.jpg", "https://res.cloudinary.com/dq5joejf7/image/upload/v1755129372/img4_p1hmht.jpg"]',
+      tipo_servicio_slug: 'remodelaciones-integrales',
+      fecha_finalizacion: new Date('2024-06-30'),
+    },
+    {
+      slug: 'altos-de-tundama',
+      titulo: 'ALTOS DE TUNDAMA',
+      descripcion_md: `
+# ALTOS DE TUNDAMA
+
+Proyecto integral de construcción que abarca desde la cimentación hasta los acabados finales, desarrollado con los más altos estándares de calidad y técnicas constructivas modernas.
+
+## Servicios Incluidos
+
+### Estructura y Cimentación
+- **CIMENTACIÓN**: Diseño y construcción de bases sólidas y duraderas
+- **ESTRUCTURA**: Desarrollo del sistema estructural completo del proyecto
+
+### Mampostería
+- **MAMPOSTERÍA FACHADA**: Construcción de muros exteriores con acabados de alta calidad
+- **MAMPOSTERÍA INTERNA**: Levantamiento de muros interiores y divisiones
+
+### Pañetes y Acabados
+- **PAÑETE FACHADA**: Aplicación de recubrimientos exteriores resistentes a la intemperie
+- **PAÑETE INTERNO**: Preparación de superficies interiores para acabados finales
+- **ACABADOS**: Instalación de acabados finales de alta calidad
+
+## Características del Proyecto
+
+- **Tipo**: Remodelación integral
+- **Alcance**: Proyecto completo desde cimentación hasta acabados
+- **Calidad**: Materiales y técnicas de construcción de primera calidad
+- **Diseño**: Arquitectura moderna y funcional
+
+## Resultado
+
+Un proyecto que combina solidez estructural, funcionalidad y estética, cumpliendo con todos los estándares de construcción y las expectativas del cliente.
+      `,
+      imagen_portada_url: 'https://res.cloudinary.com/dq5joejf7/image/upload/v1755128196/img1_g1fpyl.jpg',
+      galeria_urls: '["https://res.cloudinary.com/dq5joejf7/image/upload/v1755128400/img2_cwmscc.jpg", "https://res.cloudinary.com/dq5joejf7/image/upload/v1755128408/img3_hn9agp.jpg"]',
+      tipo_servicio_slug: 'remodelaciones-integrales',
+      fecha_finalizacion: new Date('2024-12-15'),
     },
   ];
 
