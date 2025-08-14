@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import SafeImage from './SafeImage';
 import { Link } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
 
@@ -21,7 +21,7 @@ export default function ServiceCard({ servicio }: ServiceCardProps) {
       {/* Imagen */}
       <div className="relative h-48 mb-4 overflow-hidden rounded-lg bg-outer-space/20">
         {servicio.imagen_principal_url ? (
-          <Image
+          <SafeImage
             src={servicio.imagen_principal_url}
             alt={servicio.titulo}
             fill

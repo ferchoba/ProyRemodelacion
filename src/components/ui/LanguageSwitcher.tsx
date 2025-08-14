@@ -18,6 +18,7 @@ export default function LanguageSwitcher({
   const router = useRouter();
   const pathname = usePathname();
   const [isChanging, setIsChanging] = useState(false);
+  const [announcement, setAnnouncement] = useState('');
 
   // Determinar el idioma actual
   const isSpanish = locale === 'es';
@@ -53,23 +54,16 @@ export default function LanguageSwitcher({
       router.push(newPath);
       
       // Anunciar cambio para screen readers
-      if (typeof window !== 'undefined') {
-        const announcement = isSpanish 
-          ? `Language changed to ${targetLanguage}`
-          : `Idioma cambiado a ${targetLanguage}`;
-        
-        // Crear elemento temporal para anuncio
-        const announcer = document.createElement('div');
-        announcer.setAttribute('aria-live', 'polite');
-        announcer.setAttribute('aria-atomic', 'true');
-        announcer.className = 'sr-only';
-        announcer.textContent = announcement;
-        document.body.appendChild(announcer);
-        
-        setTimeout(() => {
-          document.body.removeChild(announcer);
-        }, 1000);
-      }
+      const announcementText = isSpanish
+        ? `Language changed to ${targetLanguage}`
+        : `Idioma cambiado a ${targetLanguage}`;
+
+      setAnnouncement(announcementText);
+
+      // Limpiar el anuncio después de un tiempo
+      setTimeout(() => {
+        setAnnouncement('');
+      }, 2000);
       
     } catch (error) {
       console.error('Error changing language:', error);
@@ -156,6 +150,15 @@ export default function LanguageSwitcher({
             <div className="w-4 h-4 border-2 border-platinum border-t-transparent rounded-full animate-spin" />
           </div>
         )}
+      </div>
+
+      {/* Elemento aria-live persistente para anuncios de accesibilidad */}
+      <div
+        aria-live="polite"
+        aria-atomic="true"
+        className="sr-only"
+      >
+        {announcement}
       </div>
     </div>
   );

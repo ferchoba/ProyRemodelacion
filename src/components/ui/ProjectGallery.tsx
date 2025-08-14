@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
+import SafeImage from './SafeImage';
 
 interface ProjectGalleryProps {
   images: string[];
@@ -39,7 +39,7 @@ export default function ProjectGallery({ images, projectTitle }: ProjectGalleryP
       <div className="space-y-4">
         {/* Imagen principal */}
         <div className="relative h-96 rounded-lg overflow-hidden bg-outer-space/20 cursor-pointer group">
-          <Image
+          <SafeImage
             src={images[selectedImage]}
             alt={`${projectTitle} - Imagen ${selectedImage + 1}`}
             fill
@@ -104,7 +104,7 @@ export default function ProjectGallery({ images, projectTitle }: ProjectGalleryP
                     : 'hover:scale-105 opacity-70 hover:opacity-100'
                 }`}
               >
-                <Image
+                <SafeImage
                   src={image}
                   alt={`${projectTitle} - Miniatura ${index + 1}`}
                   fill
@@ -122,7 +122,7 @@ export default function ProjectGallery({ images, projectTitle }: ProjectGalleryP
         <div className="fixed inset-0 z-50 bg-raisin-black/95 flex items-center justify-center p-4">
           {/* Imagen en lightbox */}
           <div className="relative max-w-7xl max-h-full">
-            <Image
+            <SafeImage
               src={images[selectedImage]}
               alt={`${projectTitle} - Imagen ${selectedImage + 1}`}
               width={1200}

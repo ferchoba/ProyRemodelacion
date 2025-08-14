@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { getQuienesSomosContent } from '@/lib/repos/quienes-somos';
 import MarkdownRenderer from '@/components/ui/MarkdownRenderer';
-import Image from 'next/image';
+import SafeImage from '@/components/ui/SafeImage';
 
 export const revalidate = 86400; // ISR: revalidate every 24 hours
 
@@ -95,7 +95,7 @@ Con más de **10 años de experiencia**, hemos completado cientos de proyectos e
             {pageContent.imagen_equipo_url && (
               <div className="lg:col-span-1">
                 <div className="sticky top-24">
-                  <Image
+                  <SafeImage
                     src={pageContent.imagen_equipo_url}
                     alt="Equipo de AGL CONSTRUCCIONES SAS"
                     width={400}

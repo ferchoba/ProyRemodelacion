@@ -5,7 +5,7 @@ import { getProyectoBySlug, getAllProyectos } from '@/lib/repos/proyectos';
 import MarkdownRenderer from '@/components/ui/MarkdownRenderer';
 import ProjectGallery from '@/components/ui/ProjectGallery';
 import { Link } from '@/i18n/routing';
-import Image from 'next/image';
+import SafeImage from '@/components/ui/SafeImage';
 
 export const revalidate = 86400; // ISR: revalidate every 24 hours
 

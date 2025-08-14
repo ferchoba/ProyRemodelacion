@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import SafeImage from './SafeImage';
 import { Link } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
 
@@ -33,7 +33,7 @@ export default function ProjectCard({ proyecto }: ProjectCardProps) {
       {/* Imagen */}
       <div className="relative h-48 mb-4 overflow-hidden rounded-lg bg-outer-space/20">
         {proyecto.imagen_portada_url ? (
-          <Image
+          <SafeImage
             src={proyecto.imagen_portada_url}
             alt={proyecto.titulo}
             fill
