@@ -104,8 +104,8 @@ export default function LanguageSwitcher({
         aria-label={`${t('label')}. ${t('current', { language: currentLanguage })}`}
         tabIndex={0}
         className={`
-          relative inline-flex items-center h-8 w-20 rounded-full border cursor-pointer
-          transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 
+          relative h-8 w-20 rounded-full border cursor-pointer
+          transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500
           focus:ring-offset-2 focus:ring-offset-raisin-black
           ${isChanging ? 'opacity-75 cursor-wait' : 'cursor-pointer'}
           border-quick-silver/30 bg-outer-space/20 hover:bg-outer-space/30 hover:border-quick-silver/50
@@ -113,17 +113,18 @@ export default function LanguageSwitcher({
         onClick={handleLanguageChange}
         onKeyDown={handleKeyDown}
       >
-        {/* Texto ES */}
-        <span 
+        {/* Texto ES - posicionado absolutamente */}
+        <span
           className={`
-            text-sm font-medium transition-colors duration-200 z-10 relative px-2 select-none
+            absolute left-2 top-1/2 transform -translate-y-1/2 z-10
+            text-sm font-medium transition-colors duration-200 select-none
             ${isSpanish ? 'text-platinum' : 'text-quick-silver'}
           `}
           aria-hidden="true"
         >
           ES
         </span>
-        
+
         {/* Slider animado */}
         <div
           className={`
@@ -132,11 +133,12 @@ export default function LanguageSwitcher({
           `}
           aria-hidden="true"
         />
-        
-        {/* Texto EN */}
-        <span 
+
+        {/* Texto EN - posicionado absolutamente */}
+        <span
           className={`
-            text-sm font-medium transition-colors duration-200 z-10 relative px-2 select-none
+            absolute right-2 top-1/2 transform -translate-y-1/2 z-10
+            text-sm font-medium transition-colors duration-200 select-none
             ${!isSpanish ? 'text-platinum' : 'text-quick-silver'}
           `}
           aria-hidden="true"
