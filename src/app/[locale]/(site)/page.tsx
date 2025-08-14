@@ -38,22 +38,22 @@ export default function HomePage() {
       <section className="section-padding bg-gradient-to-br from-raisin-black via-raisin-black to-outer-space/20">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-platinum mb-6 animate-fade-in">
+            <h1 className="heading-1 mb-6 animate-fade-in">
               {t('hero.title')}
             </h1>
-            <p className="text-xl md:text-2xl text-quick-silver mb-8 max-w-3xl mx-auto leading-relaxed animate-slide-up">
+            <p className="lead mb-8 max-w-3xl mx-auto animate-slide-up">
               {t('hero.subtitle')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up">
               <Link
                 href="/cotizacion"
-                className="btn btn-primary text-lg px-8 py-4"
+                className="btn btn-primary btn-lg"
               >
                 {t('hero.cta')}
               </Link>
               <Link
                 href="/proyectos"
-                className="btn btn-secondary text-lg px-8 py-4"
+                className="btn btn-secondary btn-lg"
               >
                 {t('hero.cta_secondary')}
               </Link>
@@ -66,10 +66,10 @@ export default function HomePage() {
       <section className="section-padding">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-platinum mb-4">
+            <h2 className="heading-2 mb-4">
               {t('services.title')}
             </h2>
-            <p className="text-xl text-quick-silver max-w-2xl mx-auto">
+            <p className="lead max-w-2xl mx-auto">
               {t('services.subtitle')}
             </p>
           </div>
@@ -122,7 +122,7 @@ export default function HomePage() {
       <section className="section-padding bg-outer-space/10">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-platinum mb-4">
+            <h2 className="heading-2 mb-4">
               {t('about.title')}
             </h2>
           </div>
@@ -152,15 +152,15 @@ export default function HomePage() {
       <section className="section-padding">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold text-platinum mb-4">
+            <h2 className="heading-2 mb-4">
               {t('contact.title')}
             </h2>
-            <p className="text-xl text-quick-silver mb-8">
+            <p className="lead mb-8">
               {t('contact.subtitle')}
             </p>
             <Link
               href="/contacto"
-              className="btn btn-primary text-lg px-8 py-4"
+              className="btn btn-primary btn-lg"
             >
               {t('contact.cta')}
             </Link>

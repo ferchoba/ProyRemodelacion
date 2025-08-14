@@ -77,13 +77,13 @@ export default function ServiceCard({ servicio }: ServiceCardProps) {
         <div className="flex flex-col sm:flex-row gap-4 mt-auto">
           <Link
             href={`/servicios/${servicio.slug}`}
-            className="btn btn-primary flex-1 text-center"
+            className="btn btn-primary btn-md flex-1 text-center"
           >
             {t('read_more')}
           </Link>
           <Link
             href="/contacto"
-            className="btn btn-secondary flex-1 text-center"
+            className="btn btn-secondary btn-md flex-1 text-center"
           >
             {t('request_quote')}
           </Link>

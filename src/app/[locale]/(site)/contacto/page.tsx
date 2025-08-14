@@ -26,10 +26,10 @@ export default async function ContactPage() {
       <div className="container-custom">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-platinum mb-6">
+            <h1 className="heading-1 mb-6">
               {t('title')}
             </h1>
-            <p className="text-xl text-quick-silver max-w-2xl mx-auto">
+            <p className="lead max-w-2xl mx-auto">
               {t('subtitle')}
             </p>
           </div>

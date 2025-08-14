@@ -29,10 +29,10 @@ export default async function ServicesPage() {
     <div className="section-padding">
       <div className="container-custom">
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-platinum mb-4">
+          <h1 className="heading-1 mb-4">
             {t('title')}
           </h1>
-          <p className="text-xl text-quick-silver max-w-2xl mx-auto">
+          <p className="lead max-w-2xl mx-auto">
             {t('subtitle')}
           </p>
         </div>

@@ -76,10 +76,10 @@ Con más de **10 años de experiencia**, hemos completado cientos de proyectos e
       <div className="container-custom">
         <div className="max-w-4xl mx-auto">
           <header className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold text-platinum mb-4">
+            <h1 className="heading-1 mb-4">
               {pageContent.titulo}
             </h1>
-            <p className="text-xl text-quick-silver">
+            <p className="lead">
               {t('subtitle')}
             </p>
           </header>

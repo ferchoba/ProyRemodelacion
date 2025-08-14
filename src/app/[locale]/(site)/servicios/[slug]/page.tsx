@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getTranslations } from 'next-intl/server';
+import Image from 'next/image';
 import { getServicioBySlug, getAllServicios } from '@/lib/repos/servicios';
 import MarkdownRenderer from '@/components/ui/MarkdownRenderer';
 import { Link } from '@/i18n/routing';
@@ -98,11 +99,11 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
           {/* Contenido principal */}
           <div className="lg:col-span-2">
             <header className="mb-8">
-              <h1 className="text-4xl md:text-5xl font-bold text-platinum mb-4">
+              <h1 className="heading-1 mb-4">
                 {servicio.titulo}
               </h1>
               {servicio.descripcion_corta && (
-                <p className="text-xl text-quick-silver">
+                <p className="lead">
                   {servicio.descripcion_corta}
                 </p>
               )}
@@ -133,7 +134,7 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
             {/* Etiquetas */}
             {servicio.etiquetas.length > 0 && (
               <div className="mb-8">
-                <h3 className="text-lg font-semibold text-platinum mb-4">Categorías</h3>
+                <h3 className="heading-5 mb-4">Categorías</h3>
                 <div className="flex flex-wrap gap-2">
                   {servicio.etiquetas.map((etiqueta, index) => (
                     <span
@@ -153,7 +154,7 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
             <div className="sticky top-24 space-y-6">
               {/* CTA Card */}
               <div className="card">
-                <h3 className="text-xl font-semibold text-platinum mb-4">
+                <h3 className="heading-4 mb-4">
                   ¿Interesado en este servicio?
                 </h3>
                 <p className="text-quick-silver mb-6">
@@ -162,13 +163,13 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
                 <div className="space-y-4">
                   <Link
                     href="/contacto"
-                    className="btn btn-primary w-full text-center min-h-[48px] flex items-center justify-center"
+                    className="btn btn-primary btn-md w-full text-center"
                   >
                     {t('request_quote')}
                   </Link>
                   <Link
                     href="/contacto"
-                    className="btn btn-secondary w-full text-center min-h-[48px] flex items-center justify-center"
+                    className="btn btn-secondary btn-md w-full text-center"
                   >
                     {tContact('title')}
                   </Link>
@@ -177,7 +178,7 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
 
               {/* Información adicional */}
               <div className="card">
-                <h3 className="text-lg font-semibold text-platinum mb-4">
+                <h3 className="heading-5 mb-4">
                   ¿Por qué elegirnos?
                 </h3>
                 <ul className="space-y-3 text-quick-silver">

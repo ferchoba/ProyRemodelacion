@@ -26,10 +26,10 @@ export default async function QuotePage() {
       <div className="container-custom">
         {/* Header Section */}
         <div className="max-w-4xl mx-auto text-center mb-16">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-platinum mb-6">
+          <h1 className="heading-1 mb-6">
             {t('title')}
           </h1>
-          <p className="text-xl text-quick-silver max-w-3xl mx-auto">
+          <p className="lead max-w-3xl mx-auto">
             {t('subtitle')}
           </p>
         </div>

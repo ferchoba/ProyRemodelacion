@@ -105,7 +105,7 @@ export default function LanguageSwitcher({
         tabIndex={0}
         className={`
           relative h-8 w-20 rounded-full border cursor-pointer
-          transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500
+          transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-outer-space
           focus:ring-offset-2 focus:ring-offset-raisin-black
           ${isChanging ? 'opacity-75 cursor-wait' : 'cursor-pointer'}
           border-quick-silver/30 bg-outer-space/20 hover:bg-outer-space/30 hover:border-quick-silver/50
