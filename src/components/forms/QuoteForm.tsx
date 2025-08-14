@@ -213,13 +213,13 @@ export default function QuoteForm({ className = '' }: QuoteFormProps) {
       )}
 
       {/* Información Personal */}
-      <div className="bg-gray-50 p-6 rounded-lg">
-        <h3 className="text-lg font-semibold text-platinum mb-4">Información Personal</h3>
+      <div className="bg-platinum/10 border border-quick-silver/20 p-6 rounded-lg">
+        <h3 className="text-lg font-semibold text-raisin-black mb-4">Información Personal</h3>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* Nombre */}
           <div>
-            <label htmlFor="nombre" className="block text-sm font-medium text-platinum mb-2">
+            <label htmlFor="nombre" className="block text-sm font-medium text-raisin-black mb-2">
               Nombre completo <span className="text-red-500">*</span>
             </label>
             <input
@@ -228,8 +228,8 @@ export default function QuoteForm({ className = '' }: QuoteFormProps) {
               name="nombre"
               value={formData.nombre || ''}
               onChange={handleInputChange}
-              className={`w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-                errors.nombre ? 'border-red-500' : 'border-gray-300'
+              className={`w-full px-4 py-3 border rounded-md bg-platinum/50 text-raisin-black placeholder-quick-silver focus:ring-2 focus:ring-outer-space focus:border-outer-space transition-colors ${
+                errors.nombre ? 'border-red-500' : 'border-quick-silver'
               }`}
               placeholder="Tu nombre completo"
               required
@@ -239,7 +239,7 @@ export default function QuoteForm({ className = '' }: QuoteFormProps) {
 
           {/* Email */}
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-platinum mb-2">
+            <label htmlFor="email" className="block text-sm font-medium text-raisin-black mb-2">
               Email <span className="text-red-500">*</span>
             </label>
             <input
@@ -248,8 +248,8 @@ export default function QuoteForm({ className = '' }: QuoteFormProps) {
               name="email"
               value={formData.email || ''}
               onChange={handleInputChange}
-              className={`w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-                errors.email ? 'border-red-500' : 'border-gray-300'
+              className={`w-full px-4 py-3 border rounded-md bg-platinum/50 text-raisin-black placeholder-quick-silver focus:ring-2 focus:ring-outer-space focus:border-outer-space transition-colors ${
+                errors.email ? 'border-red-500' : 'border-quick-silver'
               }`}
               placeholder="tu@email.com"
               required
@@ -260,7 +260,7 @@ export default function QuoteForm({ className = '' }: QuoteFormProps) {
 
         {/* Teléfono */}
         <div className="mt-4">
-          <label htmlFor="telefono" className="block text-sm font-medium text-platinum mb-2">
+          <label htmlFor="telefono" className="block text-sm font-medium text-raisin-black mb-2">
             Teléfono <span className="text-red-500">*</span>
           </label>
           <input
@@ -269,8 +269,8 @@ export default function QuoteForm({ className = '' }: QuoteFormProps) {
             name="telefono"
             value={formData.telefono || ''}
             onChange={handleInputChange}
-            className={`w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-              errors.telefono ? 'border-red-500' : 'border-gray-300'
+            className={`w-full px-4 py-3 border rounded-md bg-platinum/50 text-raisin-black placeholder-quick-silver focus:ring-2 focus:ring-outer-space focus:border-outer-space transition-colors ${
+              errors.telefono ? 'border-red-500' : 'border-quick-silver'
             }`}
             placeholder="+57 300 123 4567"
             required
@@ -280,12 +280,12 @@ export default function QuoteForm({ className = '' }: QuoteFormProps) {
       </div>
 
       {/* Detalles del Proyecto */}
-      <div className="bg-blue-50 p-6 rounded-lg">
-        <h3 className="text-lg font-semibold text-platinum mb-4">Detalles del Proyecto</h3>
+      <div className="bg-outer-space/10 border border-quick-silver/20 p-6 rounded-lg">
+        <h3 className="text-lg font-semibold text-raisin-black mb-4">Detalles del Proyecto</h3>
         
         {/* Tipo de Servicio */}
         <div className="mb-4">
-          <label htmlFor="tipoServicio" className="block text-sm font-medium text-platinum mb-2">
+          <label htmlFor="tipoServicio" className="block text-sm font-medium text-raisin-black mb-2">
             Tipo de Servicio <span className="text-red-500">*</span>
           </label>
           <select
@@ -293,8 +293,8 @@ export default function QuoteForm({ className = '' }: QuoteFormProps) {
             name="tipoServicio"
             value={formData.tipoServicio || ''}
             onChange={handleInputChange}
-            className={`w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-              errors.tipoServicio ? 'border-red-500' : 'border-gray-300'
+            className={`w-full px-4 py-3 border rounded-md bg-platinum/50 text-raisin-black focus:ring-2 focus:ring-outer-space focus:border-outer-space transition-colors ${
+              errors.tipoServicio ? 'border-red-500' : 'border-quick-silver'
             }`}
             required
           >
@@ -310,7 +310,7 @@ export default function QuoteForm({ className = '' }: QuoteFormProps) {
 
         {/* Descripción del Proyecto */}
         <div className="mb-4">
-          <label htmlFor="descripcionProyecto" className="block text-sm font-medium text-platinum mb-2">
+          <label htmlFor="descripcionProyecto" className="block text-sm font-medium text-raisin-black mb-2">
             Descripción del Proyecto <span className="text-red-500">*</span>
           </label>
           <textarea
@@ -319,8 +319,8 @@ export default function QuoteForm({ className = '' }: QuoteFormProps) {
             rows={5}
             value={formData.descripcionProyecto || ''}
             onChange={handleInputChange}
-            className={`w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-vertical ${
-              errors.descripcionProyecto ? 'border-red-500' : 'border-gray-300'
+            className={`w-full px-4 py-3 border rounded-md bg-platinum/50 text-raisin-black placeholder-quick-silver focus:ring-2 focus:ring-outer-space focus:border-outer-space resize-vertical transition-colors ${
+              errors.descripcionProyecto ? 'border-red-500' : 'border-quick-silver'
             }`}
             placeholder="Describe detalladamente tu proyecto: dimensiones, materiales preferidos, estilo, etc."
             required
@@ -331,7 +331,7 @@ export default function QuoteForm({ className = '' }: QuoteFormProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* Presupuesto Estimado */}
           <div>
-            <label htmlFor="presupuestoEstimado" className="block text-sm font-medium text-platinum mb-2">
+            <label htmlFor="presupuestoEstimado" className="block text-sm font-medium text-raisin-black mb-2">
               Presupuesto Estimado (Opcional)
             </label>
             <select
@@ -339,7 +339,7 @@ export default function QuoteForm({ className = '' }: QuoteFormProps) {
               name="presupuestoEstimado"
               value={formData.presupuestoEstimado || ''}
               onChange={handleInputChange}
-              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-3 border border-quick-silver rounded-md bg-platinum/50 text-raisin-black focus:ring-2 focus:ring-outer-space focus:border-outer-space transition-colors"
             >
               <option value="">Selecciona un rango</option>
               <option value="Menos de $5M">Menos de $5M</option>
@@ -352,7 +352,7 @@ export default function QuoteForm({ className = '' }: QuoteFormProps) {
 
           {/* Fecha de Inicio */}
           <div>
-            <label htmlFor="fechaInicio" className="block text-sm font-medium text-platinum mb-2">
+            <label htmlFor="fechaInicio" className="block text-sm font-medium text-raisin-black mb-2">
               Fecha de Inicio Deseada (Opcional)
             </label>
             <input
@@ -362,8 +362,8 @@ export default function QuoteForm({ className = '' }: QuoteFormProps) {
               value={formData.fechaInicio || ''}
               onChange={handleInputChange}
               min={new Date().toISOString().split('T')[0]}
-              className={`w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-                errors.fechaInicio ? 'border-red-500' : 'border-gray-300'
+              className={`w-full px-4 py-3 border rounded-md bg-platinum/50 text-raisin-black focus:ring-2 focus:ring-outer-space focus:border-outer-space transition-colors ${
+                errors.fechaInicio ? 'border-red-500' : 'border-quick-silver'
               }`}
             />
             {errors.fechaInicio && <p className="mt-1 text-sm text-red-600">{errors.fechaInicio}</p>}
@@ -389,14 +389,14 @@ export default function QuoteForm({ className = '' }: QuoteFormProps) {
         disabled={isSubmitting}
         className={`w-full py-4 px-6 rounded-md font-medium text-lg transition-colors ${
           isSubmitting
-            ? 'bg-gray-400 cursor-not-allowed'
-            : 'bg-blue-600 hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2'
-        } text-white`}
+            ? 'bg-quick-silver cursor-not-allowed text-raisin-black'
+            : 'bg-outer-space hover:bg-outer-space/80 focus:ring-2 focus:ring-outer-space focus:ring-offset-2'
+        } text-platinum`}
       >
         {isSubmitting ? 'Enviando Solicitud...' : 'Solicitar Cotización'}
       </button>
 
-      <p className="text-sm text-gray-600 text-center">
+      <p className="text-sm text-quick-silver text-center">
         Al enviar este formulario, aceptas nuestra política de privacidad y el tratamiento de tus datos personales.
       </p>
     </form>

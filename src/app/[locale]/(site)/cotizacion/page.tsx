@@ -36,7 +36,7 @@ export default async function QuotePage() {
 
         {/* Quote Form Section */}
         <div className="max-w-4xl mx-auto">
-          <div className="bg-white rounded-lg shadow-lg p-8 md:p-12">
+          <div className="bg-platinum/10 border border-quick-silver/20 rounded-lg shadow-lg p-8 md:p-12">
             <div className="text-center mb-8">
               <h2 className="text-2xl font-bold text-platinum mb-4">
                 {t('form_title')}
@@ -54,8 +54,8 @@ export default async function QuotePage() {
         <div className="max-w-4xl mx-auto mt-16">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="w-16 h-16 bg-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-16 h-16 bg-outer-space rounded-full mx-auto mb-4 flex items-center justify-center">
+                <svg className="w-8 h-8 text-platinum" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
@@ -68,8 +68,8 @@ export default async function QuotePage() {
             </div>
 
             <div className="text-center">
-              <div className="w-16 h-16 bg-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-16 h-16 bg-outer-space rounded-full mx-auto mb-4 flex items-center justify-center">
+                <svg className="w-8 h-8 text-platinum" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
                 </svg>
               </div>
@@ -82,8 +82,8 @@ export default async function QuotePage() {
             </div>
 
             <div className="text-center">
-              <div className="w-16 h-16 bg-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-16 h-16 bg-outer-space rounded-full mx-auto mb-4 flex items-center justify-center">
+                <svg className="w-8 h-8 text-platinum" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>

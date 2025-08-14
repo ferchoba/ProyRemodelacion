@@ -192,7 +192,7 @@ export default function ContactForm({ className = '' }: ContactFormProps) {
 
       {/* Nombre */}
       <div>
-        <label htmlFor="nombre" className="block text-sm font-medium text-platinum mb-2">
+        <label htmlFor="nombre" className="block text-sm font-medium text-raisin-black mb-2">
           {t('form.name')} <span className="text-red-500">*</span>
         </label>
         <input
@@ -201,8 +201,8 @@ export default function ContactForm({ className = '' }: ContactFormProps) {
           name="nombre"
           value={formData.nombre || ''}
           onChange={handleInputChange}
-          className={`w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-            errors.nombre ? 'border-red-500' : 'border-gray-300'
+          className={`w-full px-4 py-3 border rounded-md bg-platinum/50 text-raisin-black placeholder-quick-silver focus:ring-2 focus:ring-outer-space focus:border-outer-space transition-colors ${
+            errors.nombre ? 'border-red-500' : 'border-quick-silver'
           }`}
           placeholder={t('form.name_placeholder')}
           required
@@ -217,7 +217,7 @@ export default function ContactForm({ className = '' }: ContactFormProps) {
 
       {/* Email */}
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-platinum mb-2">
+        <label htmlFor="email" className="block text-sm font-medium text-raisin-black mb-2">
           {t('form.email')} <span className="text-red-500">*</span>
         </label>
         <input
@@ -226,8 +226,8 @@ export default function ContactForm({ className = '' }: ContactFormProps) {
           name="email"
           value={formData.email || ''}
           onChange={handleInputChange}
-          className={`w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-            errors.email ? 'border-red-500' : 'border-gray-300'
+          className={`w-full px-4 py-3 border rounded-md bg-platinum/50 text-raisin-black placeholder-quick-silver focus:ring-2 focus:ring-outer-space focus:border-outer-space transition-colors ${
+            errors.email ? 'border-red-500' : 'border-quick-silver'
           }`}
           placeholder={t('form.email_placeholder')}
           required
@@ -242,7 +242,7 @@ export default function ContactForm({ className = '' }: ContactFormProps) {
 
       {/* Teléfono */}
       <div>
-        <label htmlFor="telefono" className="block text-sm font-medium text-platinum mb-2">
+        <label htmlFor="telefono" className="block text-sm font-medium text-raisin-black mb-2">
           {t('form.phone')}
         </label>
         <input
@@ -251,8 +251,8 @@ export default function ContactForm({ className = '' }: ContactFormProps) {
           name="telefono"
           value={formData.telefono || ''}
           onChange={handleInputChange}
-          className={`w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
-            errors.telefono ? 'border-red-500' : 'border-gray-300'
+          className={`w-full px-4 py-3 border rounded-md bg-platinum/50 text-raisin-black placeholder-quick-silver focus:ring-2 focus:ring-outer-space focus:border-outer-space transition-colors ${
+            errors.telefono ? 'border-red-500' : 'border-quick-silver'
           }`}
           placeholder={t('form.phone_placeholder')}
           aria-describedby={errors.telefono ? 'telefono-error' : undefined}
@@ -266,7 +266,7 @@ export default function ContactForm({ className = '' }: ContactFormProps) {
 
       {/* Mensaje */}
       <div>
-        <label htmlFor="mensaje" className="block text-sm font-medium text-platinum mb-2">
+        <label htmlFor="mensaje" className="block text-sm font-medium text-raisin-black mb-2">
           {t('form.message')} <span className="text-red-500">*</span>
         </label>
         <textarea
@@ -275,8 +275,8 @@ export default function ContactForm({ className = '' }: ContactFormProps) {
           rows={5}
           value={formData.mensaje || ''}
           onChange={handleInputChange}
-          className={`w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-vertical ${
-            errors.mensaje ? 'border-red-500' : 'border-gray-300'
+          className={`w-full px-4 py-3 border rounded-md bg-platinum/50 text-raisin-black placeholder-quick-silver focus:ring-2 focus:ring-outer-space focus:border-outer-space resize-vertical transition-colors ${
+            errors.mensaje ? 'border-red-500' : 'border-quick-silver'
           }`}
           placeholder={t('form.message_placeholder')}
           required
@@ -307,14 +307,14 @@ export default function ContactForm({ className = '' }: ContactFormProps) {
         disabled={isSubmitting}
         className={`w-full py-3 px-6 rounded-md font-medium transition-colors ${
           isSubmitting
-            ? 'bg-gray-400 cursor-not-allowed'
-            : 'bg-blue-600 hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2'
-        } text-white`}
+            ? 'bg-quick-silver cursor-not-allowed text-raisin-black'
+            : 'bg-outer-space hover:bg-outer-space/80 focus:ring-2 focus:ring-outer-space focus:ring-offset-2'
+        } text-platinum`}
       >
         {isSubmitting ? t('form.sending') : t('form.send')}
       </button>
 
-      <p className="text-sm text-gray-600 text-center">
+      <p className="text-sm text-quick-silver text-center">
         {t('form.privacy_notice')}
       </p>
     </form>
