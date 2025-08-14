@@ -125,10 +125,10 @@ export default function LanguageSwitcher({
         </span>
         
         {/* Slider animado */}
-        <div 
+        <div
           className={`
             absolute top-0.5 h-7 w-7 rounded-full bg-outer-space transition-transform duration-200 ease-in-out
-            ${isSpanish ? 'left-0.5 transform translate-x-0' : 'left-0.5 transform translate-x-6'}
+            ${isSpanish ? 'left-0.5 transform translate-x-0' : 'left-0.5 transform translate-x-12'}
           `}
           aria-hidden="true"
         />
