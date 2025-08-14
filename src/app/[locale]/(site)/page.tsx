@@ -7,19 +7,19 @@ export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations('home');
   
   return {
-    title: 'Algecira Construcciones - Remodelación y Construcción de Calidad',
+    title: 'AGL CONSTRUCCIONES SAS - Remodelación y Construcción de Calidad',
     description: t('hero.subtitle'),
     keywords: ['remodelación', 'construcción', 'cocinas', 'baños', 'oficinas', 'residencial', 'comercial', 'Colombia'],
     openGraph: {
-      title: 'Algecira Construcciones - Remodelación y Construcción',
+      title: 'AGL CONSTRUCCIONES SAS - Remodelación y Construcción',
       description: t('hero.subtitle'),
       type: 'website',
       locale: 'es_CO',
-      siteName: 'Algecira Construcciones',
+      siteName: 'AGL CONSTRUCCIONES SAS',
     },
     twitter: {
       card: 'summary_large_image',
-      title: 'Algecira Construcciones - Remodelación y Construcción',
+      title: 'AGL CONSTRUCCIONES SAS - Remodelación y Construcción',
       description: t('hero.subtitle'),
     },
     alternates: {

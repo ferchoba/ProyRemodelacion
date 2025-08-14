@@ -7,7 +7,7 @@ export async function generateMetadata(): Promise<Metadata> {
   
   return {
     title: t('title'),
-    description: 'Términos y condiciones de uso del sitio web de Algecira Construcciones.',
+    description: 'Términos y condiciones de uso del sitio web de AGL CONSTRUCCIONES SAS.',
     robots: {
       index: true,
       follow: true,

@@ -9,7 +9,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: t('title'),
     description: t('subtitle'),
     openGraph: {
-      title: `${t('title')} | Algecira Construcciones`,
+      title: `${t('title')} | AGL CONSTRUCCIONES SAS`,
       description: t('subtitle'),
     },
     alternates: {
@@ -65,7 +65,7 @@ export default async function ContactPage() {
                     </svg>
                   </div>
                   <h4 className="font-semibold text-platinum mb-2">Email</h4>
-                  <p className="text-quick-silver">info@algeciraconstrucciones.com</p>
+                  <p className="text-quick-silver">info@aglconstrucciones.com</p>
                 </div>
 
                 <div className="text-center">

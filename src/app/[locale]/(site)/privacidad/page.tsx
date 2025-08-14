@@ -7,7 +7,7 @@ export async function generateMetadata(): Promise<Metadata> {
   
   return {
     title: t('title'),
-    description: 'Política de privacidad de Algecira Construcciones. Información sobre el tratamiento de datos personales.',
+    description: 'Política de privacidad de AGL CONSTRUCCIONES SAS. Información sobre el tratamiento de datos personales.',
     robots: {
       index: true,
       follow: true,

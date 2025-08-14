@@ -7,14 +7,14 @@ import '../globals.css';
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | Algecira Construcciones',
-    default: 'Algecira Construcciones - Remodelación y Construcción',
+    template: '%s | AGL CONSTRUCCIONES SAS',
+    default: 'AGL CONSTRUCCIONES SAS - Remodelación y Construcción',
   },
   description: 'Especialistas en remodelación y construcción de espacios residenciales, comerciales y de oficina. Transformamos su visión en realidad con calidad excepcional.',
   keywords: ['remodelación', 'construcción', 'cocinas', 'baños', 'oficinas', 'residencial', 'comercial'],
-  authors: [{ name: 'Algecira Construcciones' }],
-  creator: 'Algecira Construcciones',
-  publisher: 'Algecira Construcciones',
+  authors: [{ name: 'AGL CONSTRUCCIONES SAS' }],
+  creator: 'AGL CONSTRUCCIONES SAS',
+  publisher: 'AGL CONSTRUCCIONES SAS',
   formatDetection: {
     email: false,
     address: false,
@@ -32,13 +32,13 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'es_CO',
     url: '/',
-    title: 'Algecira Construcciones - Remodelación y Construcción',
+    title: 'AGL CONSTRUCCIONES SAS - Remodelación y Construcción',
     description: 'Especialistas en remodelación y construcción de espacios residenciales, comerciales y de oficina.',
-    siteName: 'Algecira Construcciones',
+    siteName: 'AGL CONSTRUCCIONES SAS',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Algecira Construcciones - Remodelación y Construcción',
+    title: 'AGL CONSTRUCCIONES SAS - Remodelación y Construcción',
     description: 'Especialistas en remodelación y construcción de espacios residenciales, comerciales y de oficina.',
   },
   robots: {

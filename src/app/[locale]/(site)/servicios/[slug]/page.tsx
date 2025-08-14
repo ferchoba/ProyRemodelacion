@@ -53,7 +53,7 @@ export async function generateMetadata({ params }: ServiceDetailPageProps): Prom
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${servicio.titulo} | Algecira Construcciones`,
+      title: `${servicio.titulo} | AGL CONSTRUCCIONES SAS`,
       description: servicio.descripcion_corta || `Conoce más sobre nuestro servicio de ${servicio.titulo}`,
       images: servicio.imagen_principal_url ? [servicio.imagen_principal_url] : [],
     },

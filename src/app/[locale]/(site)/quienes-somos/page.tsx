@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: t('title'),
     description: t('subtitle'),
     openGraph: {
-      title: `${t('title')} | Algecira Construcciones`,
+      title: `${t('title')} | AGL CONSTRUCCIONES SAS`,
       description: t('subtitle'),
     },
     alternates: {
@@ -30,7 +30,7 @@ export default async function AboutPage() {
   const fallbackContent = {
     titulo: 'Nuestra Historia y Compromiso',
     contenido_md: `
-# Algecira Construcciones
+# AGL CONSTRUCCIONES SAS
 
 Somos una empresa especializada en **remodelación y construcción** de espacios residenciales, comerciales y de oficina. Con años de experiencia en el sector, nos hemos consolidado como líderes en transformación de espacios.
 
@@ -97,7 +97,7 @@ Con más de **10 años de experiencia**, hemos completado cientos de proyectos e
                 <div className="sticky top-24">
                   <Image
                     src={pageContent.imagen_equipo_url}
-                    alt="Equipo de Algecira Construcciones"
+                    alt="Equipo de AGL CONSTRUCCIONES SAS"
                     width={400}
                     height={500}
                     className="rounded-lg shadow-lg"

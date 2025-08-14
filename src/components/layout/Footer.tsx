@@ -31,8 +31,8 @@ const Footer = () => {
             {/* Company Info */}
             <div className="lg:col-span-2">
               <div className="text-2xl font-bold text-platinum mb-4">
-                Algecira
-                <span className="text-quick-silver ml-1">Construcciones</span>
+                AGL
+                <span className="text-quick-silver ml-1">CONSTRUCCIONES SAS</span>
               </div>
               <p className="text-quick-silver mb-6 max-w-md">
                 {t('description')}

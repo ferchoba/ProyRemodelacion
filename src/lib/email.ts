@@ -255,7 +255,7 @@ export function generateUserConfirmationTemplate(data: {
 
 Hola ${data.nombre},
 
-Hemos recibido tu ${isQuote ? 'solicitud de cotización' : 'mensaje'} y queremos agradecerte por confiar en Algecira Construcciones.
+Hemos recibido tu ${isQuote ? 'solicitud de cotización' : 'mensaje'} y queremos agradecerte por confiar en AGL CONSTRUCCIONES SAS.
 
 Nuestro equipo revisará tu ${isQuote ? 'solicitud' : 'mensaje'} y te responderemos en un plazo máximo de 24 horas.
 
@@ -267,10 +267,10 @@ Si tienes alguna pregunta urgente, no dudes en contactarnos por WhatsApp.
 
 ¡Esperamos trabajar contigo pronto!
 
-El equipo de Algecira Construcciones
+El equipo de AGL CONSTRUCCIONES SAS
 
 ---
-Algecira Construcciones - Transformando espacios, construyendo sueños
+AGL CONSTRUCCIONES SAS - Transformando espacios, construyendo sueños
   `;
 
   return { subject, html, text };
@@ -288,7 +288,7 @@ export async function sendEmail(options: {
     const from = options.from || process.env.SMTP_FROM || process.env.SMTP_USER;
     
     const info = await transporter.sendMail({
-      from: `"Algecira Construcciones" <${from}>`,
+      from: `"AGL CONSTRUCCIONES SAS" <${from}>`,
       to: options.to,
       subject: options.subject,
       html: options.html,

@@ -33,7 +33,7 @@ async function main() {
     create: {
       titulo: 'Nuestra Historia y Compromiso',
       contenido_md: `
-# Algecira Construcciones
+# AGL CONSTRUCCIONES SAS
 
 Somos una empresa especializada en **remodelación y construcción** de espacios residenciales, comerciales y de oficina. Con años de experiencia en el sector, nos hemos consolidado como líderes en transformación de espacios.
 
