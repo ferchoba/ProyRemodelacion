@@ -61,10 +61,14 @@
     "subtitle": "We're here to help you with your project",
     "form": {
       "name": "Full name",
+      "name_placeholder": "Your full name",
       "email": "Email address",
+      "email_placeholder": "your@email.com",
       "phone": "Phone",
+      "phone_placeholder": "+57 300 123 4567",
       "service": "Service type",
       "message": "Message",
+      "message_placeholder": "Tell us how we can help you...",
       "description": "Project description",
       "submit": "Send Message",
       "submit_quote": "Request Quote",
@@ -72,8 +76,10 @@
       "invalid_email": "Invalid email address",
       "invalid_phone": "Invalid phone number",
       "sending": "Sending...",
+      "send": "Send Message",
       "success": "Message sent successfully",
-      "error": "Error sending message. Please try again."
+      "error": "Error sending message. Please try again.",
+      "privacy_notice": "By submitting this form, you accept our privacy policy and the processing of your personal data."
     },
     "info": {
       "title": "Contact Information",
@@ -162,5 +168,14 @@
     "read_more": "Read more",
     "show_more": "Show more",
     "show_less": "Show less"
+  },
+  "language": {
+    "switcher": {
+      "label": "Change language",
+      "current": "Current language: {language}",
+      "spanish": "Español",
+      "english": "English",
+      "changed_to": "Language changed to {language}"
+    }
   }
 }

@@ -168,5 +168,14 @@
     "read_more": "Leer más",
     "show_more": "Mostrar más",
     "show_less": "Mostrar menos"
+  },
+  "language": {
+    "switcher": {
+      "label": "Cambiar idioma",
+      "current": "Idioma actual: {language}",
+      "spanish": "Español",
+      "english": "English",
+      "changed_to": "Idioma cambiado a {language}"
+    }
   }
 }

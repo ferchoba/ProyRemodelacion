@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { LanguageSwitcherHeader, LanguageSwitcherMobile } from '@/components/ui/LanguageSwitcher';
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -59,8 +60,9 @@ const Header = () => {
             ))}
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-4">
+          {/* Language Switcher + CTA Buttons */}
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:items-center lg:gap-x-4">
+            <LanguageSwitcherHeader />
             <Link
               href="/cotizacion"
               className="btn btn-secondary text-sm font-semibold min-h-[40px]"
@@ -127,6 +129,11 @@ const Header = () => {
                     >
                       {t('contact')}
                     </Link>
+
+                    {/* Language Switcher for Mobile */}
+                    <div className="pt-4 border-t border-quick-silver/20">
+                      <LanguageSwitcherMobile />
+                    </div>
                   </div>
                 </div>
               </div>
