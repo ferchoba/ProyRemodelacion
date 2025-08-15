@@ -43,14 +43,30 @@
     "title": "Nuestros Servicios",
     "subtitle": "Soluciones completas de remodelación y construcción",
     "read_more": "Leer Más",
-    "request_quote": "Solicitar Cotización"
+    "request_quote": "Solicitar Cotización",
+    "no_services_title": "No hay servicios disponibles",
+    "no_services_message": "Los servicios se cargarán desde la base de datos una vez que estén configurados.",
+    "interested_title": "¿Interesado en este servicio?",
+    "interested_description": "Solicita una cotización gratuita y sin compromiso. Nuestro equipo te contactará en menos de 24 horas.",
+    "why_choose_title": "¿Por qué elegirnos?",
+    "experience": "Más de 10 años de experiencia",
+    "quality_materials": "Materiales de alta calidad",
+    "warranty": "Garantía en todos los trabajos",
+    "free_quotes": "Presupuestos sin compromiso",
+    "categories": "Categorías"
   },
   "projects": {
     "title": "Nuestros Proyectos",
     "subtitle": "Galería de trabajos realizados",
     "filter_all": "Todos",
     "view_details": "Ver Detalles",
-    "completed_on": "Completado en"
+    "completed_on": "Completado en",
+    "filter_title": "Filtrar por tipo de servicio",
+    "showing": "Mostrando",
+    "project": "proyecto",
+    "projects": "proyectos",
+    "of": "de",
+    "in_total": "en total"
   },
   "about": {
     "title": "Quiénes Somos",

@@ -21,9 +21,15 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function ServicesPage() {
+interface ServicesPageProps {
+  params: {
+    locale: string;
+  };
+}
+
+export default async function ServicesPage({ params }: ServicesPageProps) {
   const t = await getTranslations('services');
-  const servicios = await getAllServicios();
+  const servicios = await getAllServicios(params.locale);
 
   return (
     <div className="section-padding">
@@ -60,10 +66,10 @@ export default async function ServicesPage() {
                 />
               </svg>
               <h3 className="text-xl font-semibold text-platinum mb-2">
-                No hay servicios disponibles
+                {t('no_services_title')}
               </h3>
               <p className="text-quick-silver">
-                Los servicios se cargarán desde la base de datos una vez que estén configurados.
+                {t('no_services_message')}
               </p>
             </div>
           </div>

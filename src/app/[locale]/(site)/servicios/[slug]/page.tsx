@@ -17,15 +17,26 @@ interface ServiceDetailPageProps {
 }
 
 export async function generateStaticParams() {
-  const servicios = await getAllServicios();
-  
-  return servicios.map((servicio) => ({
-    slug: servicio.slug,
-  }));
+  // Generar parámetros para ambos idiomas
+  const serviciosES = await getAllServicios('ES');
+  const serviciosEN = await getAllServicios('EN');
+
+  const params = [
+    ...serviciosES.map((servicio) => ({
+      slug: servicio.slug,
+      locale: 'es',
+    })),
+    ...serviciosEN.map((servicio) => ({
+      slug: servicio.slug,
+      locale: 'en',
+    })),
+  ];
+
+  return params;
 }
 
 export async function generateMetadata({ params }: ServiceDetailPageProps): Promise<Metadata> {
-  const servicio = await getServicioBySlug(params.slug);
+  const servicio = await getServicioBySlug(params.slug, params.locale);
   
   if (!servicio) {
     return {
@@ -67,7 +78,8 @@ export async function generateMetadata({ params }: ServiceDetailPageProps): Prom
 export default async function ServiceDetailPage({ params }: ServiceDetailPageProps) {
   const t = await getTranslations('services');
   const tContact = await getTranslations('contact');
-  const servicio = await getServicioBySlug(params.slug);
+  const tNav = await getTranslations('navigation');
+  const servicio = await getServicioBySlug(params.slug, params.locale);
 
   if (!servicio) {
     notFound();
@@ -81,7 +93,7 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
           <ol className="flex items-center space-x-2 text-sm text-quick-silver">
             <li>
               <Link href="/" className="hover:text-platinum transition-colors">
-                Inicio
+                {tNav('home')}
               </Link>
             </li>
             <li>/</li>
@@ -134,7 +146,7 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
             {/* Etiquetas */}
             {servicio.etiquetas.length > 0 && (
               <div className="mb-8">
-                <h3 className="heading-5 mb-4">Categorías</h3>
+                <h3 className="heading-5 mb-4">{t('categories')}</h3>
                 <div className="flex flex-wrap gap-2">
                   {servicio.etiquetas.map((etiqueta, index) => (
                     <span
@@ -155,10 +167,10 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
               {/* CTA Card */}
               <div className="card">
                 <h3 className="heading-4 mb-4">
-                  ¿Interesado en este servicio?
+                  {t('interested_title')}
                 </h3>
                 <p className="text-quick-silver mb-6">
-                  Solicita una cotización gratuita y sin compromiso. Nuestro equipo te contactará en menos de 24 horas.
+                  {t('interested_description')}
                 </p>
                 <div className="space-y-4">
                   <Link
@@ -179,32 +191,32 @@ export default async function ServiceDetailPage({ params }: ServiceDetailPagePro
               {/* Información adicional */}
               <div className="card">
                 <h3 className="heading-5 mb-4">
-                  ¿Por qué elegirnos?
+                  {t('why_choose_title')}
                 </h3>
                 <ul className="space-y-3 text-quick-silver">
                   <li className="flex items-start space-x-2">
                     <svg className="w-5 h-5 text-outer-space mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
-                    <span>Más de 10 años de experiencia</span>
+                    <span>{t('experience')}</span>
                   </li>
                   <li className="flex items-start space-x-2">
                     <svg className="w-5 h-5 text-outer-space mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
-                    <span>Materiales de alta calidad</span>
+                    <span>{t('quality_materials')}</span>
                   </li>
                   <li className="flex items-start space-x-2">
                     <svg className="w-5 h-5 text-outer-space mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
-                    <span>Garantía en todos los trabajos</span>
+                    <span>{t('warranty')}</span>
                   </li>
                   <li className="flex items-start space-x-2">
                     <svg className="w-5 h-5 text-outer-space mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
-                    <span>Presupuestos sin compromiso</span>
+                    <span>{t('free_quotes')}</span>
                   </li>
                 </ul>
               </div>

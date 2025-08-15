@@ -20,19 +20,24 @@ model Parametro {
 
 model Servicio {
   id                   Int       @id @default(autoincrement())
-  slug                 String    @unique
+  slug                 String
   titulo               String
   descripcion_corta    String?
   contenido_md         String
   imagen_principal_url String?
   etiquetas            String    @default("[]") // JSON array as string
+  idioma               String    @default("ES")
+  orden                Int       @default(1)
   activo               Boolean   @default(true)
   created_at           DateTime  @default(now())
   updated_at           DateTime  @updatedAt
-  
+
   // Relation to projects
   proyectos            Proyecto[]
 
+  @@unique([slug, idioma]) // Unique combination of slug and language
+  @@index([idioma])
+  @@index([orden])
   @@map("servicios")
 }
 
@@ -43,14 +48,14 @@ model Proyecto {
   descripcion_md       String
   imagen_portada_url   String?
   galeria_urls         String    @default("[]") // JSON array as string
-  tipo_servicio_slug   String
+  servicio_id          Int
   fecha_finalizacion   DateTime?
   activo               Boolean   @default(true)
   created_at           DateTime  @default(now())
   updated_at           DateTime  @updatedAt
-  
+
   // Relation to service
-  servicio             Servicio  @relation(fields: [tipo_servicio_slug], references: [slug])
+  servicio             Servicio  @relation(fields: [servicio_id], references: [id])
 
   @@map("proyectos")
 }

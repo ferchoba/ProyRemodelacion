@@ -23,8 +23,8 @@ export default function ProjectFilters({
 
   return (
     <div className="mb-8">
-      <h3 className="text-lg font-semibold text-platinum mb-4">
-        Filtrar por tipo de servicio
+      <h3 className="heading-5 mb-4">
+        {t('filter_title')}
       </h3>
       
       <div className="flex flex-wrap gap-3">

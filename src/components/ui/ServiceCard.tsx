@@ -10,6 +10,8 @@ interface ServiceCardProps {
     descripcion_corta: string | null;
     imagen_principal_url: string | null;
     etiquetas: string[];
+    idioma: string;
+    orden: number;
   };
 }
 

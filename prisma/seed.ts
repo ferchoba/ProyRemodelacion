@@ -287,7 +287,12 @@ El proceso inicia con la preparación meticulosa de la superficie para asegurar 
 
   for (const servicio of servicios) {
     await prisma.servicio.upsert({
-      where: { slug: servicio.slug },
+      where: {
+        slug_idioma: {
+          slug: servicio.slug,
+          idioma: servicio.idioma || 'ES'
+        }
+      },
       update: {},
       create: servicio,
     });

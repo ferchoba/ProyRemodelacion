@@ -69,13 +69,13 @@ export default function ProjectsClient({ proyectos, tiposServicio }: ProjectsCli
               <p className="text-quick-silver">
                 {selectedFilter ? (
                   <>
-                    Mostrando {filteredProyectos.length} proyecto{filteredProyectos.length !== 1 ? 's' : ''} 
-                    {tiposServicio.find(t => t.slug === selectedFilter)?.titulo && 
-                      ` de ${tiposServicio.find(t => t.slug === selectedFilter)?.titulo}`
+                    {t('showing')} {filteredProyectos.length} {filteredProyectos.length === 1 ? t('project') : t('projects')}
+                    {tiposServicio.find(t => t.slug === selectedFilter)?.titulo &&
+                      ` ${t('of')} ${tiposServicio.find(t => t.slug === selectedFilter)?.titulo}`
                     }
                   </>
                 ) : (
-                  `Mostrando ${proyectos.length} proyecto${proyectos.length !== 1 ? 's' : ''} en total`
+                  `${t('showing')} ${proyectos.length} ${proyectos.length === 1 ? t('project') : t('projects')} ${t('in_total')}`
                 )}
               </p>
             </div>

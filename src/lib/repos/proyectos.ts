@@ -117,7 +117,7 @@ export async function getTiposServicioConProyectos() {
         },
       },
       orderBy: {
-        titulo: 'asc',
+        orden: 'asc',
       },
     });
 

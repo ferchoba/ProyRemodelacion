@@ -1,13 +1,14 @@
 import { db } from '@/lib/db';
 
-export async function getAllServicios() {
+export async function getAllServicios(idioma?: string) {
   try {
     const servicios = await db.servicio.findMany({
       where: {
         activo: true,
+        ...(idioma && { idioma: idioma.toUpperCase() }),
       },
       orderBy: {
-        created_at: 'desc',
+        orden: 'asc',
       },
       select: {
         id: true,
@@ -16,6 +17,8 @@ export async function getAllServicios() {
         descripcion_corta: true,
         imagen_principal_url: true,
         etiquetas: true,
+        idioma: true,
+        orden: true,
         created_at: true,
       },
     });
@@ -30,12 +33,13 @@ export async function getAllServicios() {
   }
 }
 
-export async function getServicioBySlug(slug: string) {
+export async function getServicioBySlug(slug: string, idioma?: string) {
   try {
-    const servicio = await db.servicio.findUnique({
+    const servicio = await db.servicio.findFirst({
       where: {
         slug,
         activo: true,
+        ...(idioma && { idioma: idioma.toUpperCase() }),
       },
     });
 
