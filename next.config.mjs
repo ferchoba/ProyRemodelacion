@@ -7,6 +7,96 @@ const nextConfig = {
   experimental: {
     typedRoutes: true,
   },
+  webpack: (config, { isServer, webpack }) => {
+    // Configuración específica para resolver problemas con libSQL/Turso
+
+    // 1. Excluir archivos problemáticos de libSQL de manera más agresiva
+    config.module.rules.push({
+      test: /\/(LICENSE|README|CHANGELOG|\.md|\.txt)(\.[a-z]+)?$/i,
+      type: 'asset/resource',
+      generator: { emit: false },
+    });
+
+    // 2. Ignorar completamente los archivos problemáticos de libSQL
+    config.plugins.push(
+      new webpack.IgnorePlugin({
+        resourceRegExp: /^(lokijs|pino-pretty|encoding)$/,
+      })
+    );
+
+    // 3. Ignorar archivos específicos de libSQL que causan problemas
+    config.plugins.push(
+      new webpack.IgnorePlugin({
+        resourceRegExp: /@libsql\/.*\/(LICENSE|README|CHANGELOG|\.md|\.txt)/i,
+      })
+    );
+
+    // 4. Ignorar archivos binarios y de configuración de libSQL
+    config.plugins.push(
+      new webpack.IgnorePlugin({
+        resourceRegExp: /@libsql\/.*\/(\.node|\.wasm|\.so|\.dll)$/i,
+      })
+    );
+
+    // 5. Solo procesar libSQL en el servidor
+    if (!isServer) {
+      config.plugins.push(
+        new webpack.IgnorePlugin({
+          resourceRegExp: /^@libsql\/client$/,
+        })
+      );
+      config.plugins.push(
+        new webpack.IgnorePlugin({
+          resourceRegExp: /^@prisma\/adapter-libsql$/,
+        })
+      );
+    }
+
+    // 6. Ignorar completamente todos los archivos problemáticos de libSQL
+    config.plugins.push(
+      new webpack.IgnorePlugin({
+        resourceRegExp: /\.(md|txt|node|wasm|so|dll|d\.ts)$/i,
+        contextRegExp: /@libsql/,
+      })
+    );
+
+    // 7. Ignorar archivos específicos que causan problemas
+    config.plugins.push(
+      new webpack.IgnorePlugin({
+        resourceRegExp: /README|LICENSE|CHANGELOG/i,
+        contextRegExp: /@libsql|@prisma\/adapter-libsql/,
+      })
+    );
+
+    // 3. Resolver problemas con dependencias de libSQL en el cliente
+    if (!isServer) {
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+        net: false,
+        tls: false,
+        crypto: false,
+        stream: false,
+        url: false,
+        zlib: false,
+        http: false,
+        https: false,
+        assert: false,
+        os: false,
+        path: false,
+      };
+    }
+
+    // 4. Configuración específica para @libsql
+    config.module.rules.push({
+      test: /node_modules\/@libsql\/.*\.js$/,
+      resolve: {
+        fullySpecified: false,
+      },
+    });
+
+    return config;
+  },
   images: {
     formats: ['image/webp', 'image/avif'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],

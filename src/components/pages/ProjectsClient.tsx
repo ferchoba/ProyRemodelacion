@@ -13,7 +13,7 @@ interface ProjectsClientProps {
     descripcion_md: string;
     imagen_portada_url: string | null;
     galeria_urls: string[];
-    tipo_servicio_slug: string;
+    servicio_id: number;
     fecha_finalizacion: Date | null;
     servicio: {
       titulo: string;
@@ -35,10 +35,8 @@ export default function ProjectsClient({ proyectos, tiposServicio }: ProjectsCli
 
   // Filtrar proyectos basado en el filtro seleccionado
   const filteredProyectos = useMemo(() => {
-    if (!selectedFilter) {
-      return proyectos;
-    }
-    return proyectos.filter(proyecto => proyecto.tipo_servicio_slug === selectedFilter);
+    if (!selectedFilter) return proyectos;
+    return proyectos.filter((proyecto) => proyecto.servicio?.slug === selectedFilter);
   }, [proyectos, selectedFilter]);
 
   return (

@@ -1,12 +1,16 @@
 import { db } from '@/lib/db';
 
+const debug = Boolean(process.env.DEBUG_DB);
+
 export async function getAllServicios(idioma?: string) {
   try {
+    const where = {
+      activo: true,
+      ...(idioma && { idioma: idioma.toUpperCase() }),
+    } as const;
+
     const servicios = await db.servicio.findMany({
-      where: {
-        activo: true,
-        ...(idioma && { idioma: idioma.toUpperCase() }),
-      },
+      where,
       orderBy: {
         orden: 'asc',
       },
@@ -23,27 +27,34 @@ export async function getAllServicios(idioma?: string) {
       },
     });
 
-    return servicios.map(servicio => ({
+    const parsed = servicios.map((servicio) => ({
       ...servicio,
       etiquetas: JSON.parse(servicio.etiquetas || '[]') as string[],
     }));
-  } catch (error) {
-    console.error('Error fetching servicios:', error);
+
+    if (debug) {
+      console.log('[getAllServicios] idioma:', idioma, 'count:', parsed.length);
+    }
+
+    return parsed;
+  } catch (error: any) {
+    console.error('[getAllServicios] Error:', error?.message || error);
     return [];
   }
 }
 
 export async function getServicioBySlug(slug: string, idioma?: string) {
   try {
-    const servicio = await db.servicio.findFirst({
-      where: {
-        slug,
-        activo: true,
-        ...(idioma && { idioma: idioma.toUpperCase() }),
-      },
-    });
+    const where = {
+      slug,
+      activo: true,
+      ...(idioma && { idioma: idioma.toUpperCase() }),
+    } as const;
+
+    const servicio = await db.servicio.findFirst({ where });
 
     if (!servicio) {
+      if (debug) console.log('[getServicioBySlug] Not found for', { slug, idioma });
       return null;
     }
 
@@ -51,8 +62,8 @@ export async function getServicioBySlug(slug: string, idioma?: string) {
       ...servicio,
       etiquetas: JSON.parse(servicio.etiquetas || '[]') as string[],
     };
-  } catch (error) {
-    console.error(`Error fetching servicio with slug ${slug}:`, error);
+  } catch (error: any) {
+    console.error(`[getServicioBySlug] Error for slug ${slug}:`, error?.message || error);
     return null;
   }
 }
@@ -70,8 +81,8 @@ export async function getServiciosForSitemap() {
     });
 
     return servicios;
-  } catch (error) {
-    console.error('Error fetching servicios for sitemap:', error);
+  } catch (error: any) {
+    console.error('[getServiciosForSitemap] Error:', error?.message || error);
     return [];
   }
 }

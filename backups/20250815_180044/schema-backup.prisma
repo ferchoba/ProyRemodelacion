@@ -1,0 +1,84 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Parametro {
+  clave       String  @id
+  valor       String
+  descripcion String?
+
+  @@map("parametros")
+}
+
+model Servicio {
+  id                   Int        @id @default(autoincrement())
+  slug                 String
+  titulo               String
+  descripcion_corta    String?
+  contenido_md         String
+  imagen_principal_url String?
+  etiquetas            String     @default("[]")
+  idioma               String     @default("ES")
+  orden                Int        @default(1)
+  activo               Boolean    @default(true)
+  created_at           DateTime   @default(now())
+  updated_at           DateTime   @updatedAt
+  proyectos            Proyecto[]
+
+  @@unique([slug, idioma])
+  @@index([idioma])
+  @@index([orden])
+  @@map("servicios")
+}
+
+model Proyecto {
+  id                 Int       @id @default(autoincrement())
+  slug               String    @unique
+  titulo             String
+  descripcion_md     String
+  imagen_portada_url String?
+  galeria_urls       String    @default("[]")
+  servicio_id        Int
+  fecha_finalizacion DateTime?
+  activo             Boolean   @default(true)
+  created_at         DateTime  @default(now())
+  updated_at         DateTime  @updatedAt
+  servicio           Servicio  @relation(fields: [servicio_id], references: [id])
+
+  @@map("proyectos")
+}
+
+model QuienesSomos {
+  id                Int      @id @default(autoincrement())
+  titulo            String
+  contenido_md      String
+  imagen_equipo_url String?
+  activo            Boolean  @default(true)
+  created_at        DateTime @default(now())
+  updated_at        DateTime @updatedAt
+
+  @@map("quienes_somos")
+}
+
+model Formulario {
+  id              Int      @id @default(autoincrement())
+  tipo            String
+  nombre          String
+  email           String
+  telefono        String?
+  tipo_servicio   String?
+  descripcion     String
+  fecha_envio     DateTime @default(now())
+  ip              String?
+  recaptcha_score Float?
+  estado          String   @default("recibido")
+
+  @@map("formularios")
+}
+
+

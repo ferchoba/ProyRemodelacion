@@ -10,7 +10,7 @@ interface ProjectCardProps {
     descripcion_md: string;
     imagen_portada_url: string | null;
     galeria_urls: string[];
-    tipo_servicio_slug: string;
+    servicio_id: number;
     fecha_finalizacion: Date | null;
     servicio: {
       titulo: string;
