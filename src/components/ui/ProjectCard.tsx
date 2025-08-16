@@ -104,7 +104,7 @@ export default function ProjectCard({ proyecto }: ProjectCardProps) {
         {/* Botón de acción */}
         <div className="mt-auto">
           <Link
-            href={`/proyectos/${proyecto.slug}`}
+            href={`/proyectos/${proyecto.slug}` as any}
             className="btn btn-primary w-full text-center"
           >
             {t('view_details')}
