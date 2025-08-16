@@ -87,18 +87,16 @@ export async function POST(request: NextRequest) {
     };
 
     // Guardar en base de datos
-    const formularioCotizacion = await db.formularioCotizacion.create({
+    const formularioCotizacion = await db.formulario.create({
       data: {
+        tipo: 'cotizacion',
         nombre: sanitizedData.nombre,
         email: sanitizedData.email,
         telefono: sanitizedData.telefono,
         tipo_servicio: sanitizedData.tipoServicio,
-        descripcion_proyecto: sanitizedData.descripcionProyecto,
-        presupuesto_estimado: sanitizedData.presupuestoEstimado,
-        fecha_inicio_deseada: sanitizedData.fechaInicio ? new Date(sanitizedData.fechaInicio) : null,
+        descripcion: `${sanitizedData.descripcionProyecto}\n\nPresupuesto estimado: ${sanitizedData.presupuestoEstimado}\nFecha inicio deseada: ${sanitizedData.fechaInicio || 'No especificada'}`,
         recaptcha_score: recaptchaScore,
-        ip_address: request.ip || 'unknown',
-        user_agent: request.headers.get('user-agent') || 'unknown',
+        ip: request.ip || 'unknown',
       },
     });
 

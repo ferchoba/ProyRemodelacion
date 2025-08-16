@@ -51,7 +51,7 @@ export default function LanguageSwitcher({
       }
       
       // Navegar a la nueva ruta
-      router.push(newPath);
+      router.push(newPath as any);
       
       // Anunciar cambio para screen readers
       const announcementText = isSpanish

@@ -11,12 +11,12 @@ const Header = () => {
   const t = useTranslations('navigation');
 
   const navigation = [
-    { name: t('home'), href: '/' },
-    { name: t('services'), href: '/servicios' },
-    { name: t('projects'), href: '/proyectos' },
-    { name: t('about'), href: '/quienes-somos' },
-    { name: t('contact'), href: '/contacto' },
-    { name: t('quote'), href: '/cotizacion' },
+    { name: t('home'), href: '/' as const },
+    { name: t('services'), href: '/servicios' as const },
+    { name: t('projects'), href: '/proyectos' as const },
+    { name: t('about'), href: '/quienes-somos' as const },
+    { name: t('contact'), href: '/contacto' as const },
+    { name: t('quote'), href: '/cotizacion' as const },
   ];
 
   return (

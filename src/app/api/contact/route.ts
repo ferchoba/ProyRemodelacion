@@ -75,15 +75,15 @@ export async function POST(request: NextRequest) {
     };
 
     // Guardar en base de datos
-    const formularioContacto = await db.formularioContacto.create({
+    const formularioContacto = await db.formulario.create({
       data: {
+        tipo: 'contacto',
         nombre: sanitizedData.nombre,
         email: sanitizedData.email,
         telefono: sanitizedData.telefono,
-        mensaje: sanitizedData.mensaje,
+        descripcion: sanitizedData.mensaje,
         recaptcha_score: recaptchaScore,
-        ip_address: request.ip || 'unknown',
-        user_agent: request.headers.get('user-agent') || 'unknown',
+        ip: request.ip || 'unknown',
       },
     });
 

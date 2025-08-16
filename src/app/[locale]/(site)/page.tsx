@@ -76,7 +76,7 @@ export default function HomePage() {
 
           {/* Services Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            <Link href="/servicios/demoliciones" className="card text-center hover:bg-outer-space/10 transition-colors">
+            <Link href="/servicios" className="card text-center hover:bg-outer-space/10 transition-colors">
               <div className="w-16 h-16 bg-outer-space rounded-lg mx-auto mb-4 flex items-center justify-center">
                 <svg className="w-8 h-8 text-platinum" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
@@ -86,7 +86,7 @@ export default function HomePage() {
               <p className="text-quick-silver">Servicio profesional para el desmantelamiento seguro y eficiente de estructuras.</p>
             </Link>
 
-            <Link href="/servicios/estructura" className="card text-center hover:bg-outer-space/10 transition-colors">
+            <Link href="/servicios" className="card text-center hover:bg-outer-space/10 transition-colors">
               <div className="w-16 h-16 bg-outer-space rounded-lg mx-auto mb-4 flex items-center justify-center">
                 <svg className="w-8 h-8 text-platinum" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-4m-5 0H9m0 0H5m0 0h2M7 7h10M7 11h10M7 15h10" />
@@ -96,7 +96,7 @@ export default function HomePage() {
               <p className="text-quick-silver">Levantamos el esqueleto de su edificación con precisión y máxima seguridad.</p>
             </Link>
 
-            <Link href="/servicios/acabados" className="card text-center hover:bg-outer-space/10 transition-colors">
+            <Link href="/servicios" className="card text-center hover:bg-outer-space/10 transition-colors">
               <div className="w-16 h-16 bg-outer-space rounded-lg mx-auto mb-4 flex items-center justify-center">
                 <svg className="w-8 h-8 text-platinum" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a2 2 0 002-2V5z" />

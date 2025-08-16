@@ -10,17 +10,17 @@ const Footer = () => {
   const tNav = useTranslations('navigation');
 
   const navigation = [
-    { name: tNav('home'), href: '/' },
-    { name: tNav('services'), href: '/servicios' },
-    { name: tNav('projects'), href: '/proyectos' },
-    { name: tNav('about'), href: '/quienes-somos' },
-    { name: tNav('contact'), href: '/contacto' },
-    { name: tNav('quote'), href: '/cotizacion' },
+    { name: tNav('home'), href: '/' as const },
+    { name: tNav('services'), href: '/servicios' as const },
+    { name: tNav('projects'), href: '/proyectos' as const },
+    { name: tNav('about'), href: '/quienes-somos' as const },
+    { name: tNav('contact'), href: '/contacto' as const },
+    { name: tNav('quote'), href: '/cotizacion' as const },
   ];
 
   const legalLinks = [
-    { name: t('privacy'), href: '/privacidad' },
-    { name: t('terms'), href: '/terminos' },
+    { name: t('privacy'), href: '/privacidad' as const },
+    { name: t('terms'), href: '/terminos' as const },
   ];
 
   return (

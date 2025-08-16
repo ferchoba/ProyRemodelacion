@@ -32,7 +32,7 @@ async function basicTest() {
         const count = await client.execute(`SELECT COUNT(*) as count FROM ${row.name}`)
         console.log(`   ${row.name}: ${count.rows[0].count} registros`)
       } catch (error) {
-        console.log(`   ${row.name}: Error - ${error.message}`)
+        console.log(`   ${row.name}: Error - ${error instanceof Error ? error.message : String(error)}`)
       }
     }
     
@@ -47,7 +47,7 @@ async function basicTest() {
         console.log('⚠️  No hay datos en parametros')
       }
     } catch (error) {
-      console.log(`❌ Error leyendo datos: ${error.message}`)
+      console.log(`❌ Error leyendo datos: ${error instanceof Error ? error.message : String(error)}`)
     }
     
     console.log('\n🎉 Test básico completado')

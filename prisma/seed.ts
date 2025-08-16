@@ -98,6 +98,9 @@ Nos encargamos de la gestión de residuos conforme a las normativas ambientales,
       `,
       imagen_principal_url: 'https://images.unsplash.com/photo-1593741462828-ea645318c641?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       etiquetas: '[]',
+      idioma: 'ES',
+      activo: true,
+      orden: 1,
     },
     {
       slug: 'cimentacion',
@@ -121,6 +124,9 @@ Iniciamos con un riguroso estudio geotécnico para determinar la solución ópti
       `,
       imagen_principal_url: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       etiquetas: '[]',
+      idioma: 'ES',
+      activo: true,
+      orden: 2,
     },
     {
       slug: 'estructura',
@@ -144,6 +150,9 @@ Trabajamos en estricto cumplimiento con los planos de diseño y la normativa de 
       `,
       imagen_principal_url: 'https://images.unsplash.com/photo-1519994999489-76f7f0230b9e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       etiquetas: '[]',
+      idioma: 'ES',
+      activo: true,
+      orden: 3,
     },
     {
       slug: 'mamposteria',
@@ -167,6 +176,9 @@ Empleamos materiales de alta calidad como ladrillos de arcilla y bloques de conc
       `,
       imagen_principal_url: 'https://images.unsplash.com/photo-1559422501-f6a89498a4d4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       etiquetas: '["MAMPOSTERÍA FACHADA", "MAMPOSTERÍA FACHADA A LA VISTA", "MAMPOSTERÍA INTERNA"]',
+      idioma: 'ES',
+      activo: true,
+      orden: 4,
     },
     {
       slug: 'panetes',
@@ -190,6 +202,9 @@ Nuestro proceso técnico asegura paredes a plomo y superficies maestreadas, elim
       `,
       imagen_principal_url: 'https://images.unsplash.com/photo-1581121374966-23b2e595856e?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       etiquetas: '["PAÑETES FACHADA", "PAÑETES INTERNOS"]',
+      idioma: 'ES',
+      activo: true,
+      orden: 5,
     },
     {
       slug: 'acabados',
@@ -213,6 +228,9 @@ Coordinamos e instalamos una amplia gama de elementos, incluyendo pisos de alta 
       `,
       imagen_principal_url: 'https://images.unsplash.com/photo-1616046229478-9901c5536a45?q=80&w=2080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       etiquetas: '[]',
+      idioma: 'ES',
+      activo: true,
+      orden: 6,
     },
     {
       slug: 'estuco-y-pintura',
@@ -236,6 +254,9 @@ Posteriormente, aplicamos pintura de alta calidad, seleccionando el tipo adecuad
       `,
       imagen_principal_url: 'https://images.unsplash.com/photo-1596731362429-3c483259844c?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       etiquetas: '[]',
+      idioma: 'ES',
+      activo: true,
+      orden: 7,
     },
     {
       slug: 'drywall',
@@ -259,6 +280,9 @@ Sus principales beneficios son la agilidad en la instalación, la limpieza de la
       `,
       imagen_principal_url: 'https://images.unsplash.com/photo-1581094021443-054f4b4c73ae?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       etiquetas: '[]',
+      idioma: 'ES',
+      activo: true,
+      orden: 8,
     },
     {
       slug: 'instalacion-de-enchapes',
@@ -282,6 +306,9 @@ El proceso inicia con la preparación meticulosa de la superficie para asegurar 
       `,
       imagen_principal_url: 'https://images.unsplash.com/photo-1603957278278-656331a6187a?q=80&w=1967&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       etiquetas: '[]',
+      idioma: 'ES',
+      activo: true,
+      orden: 9,
     },
   ];
 
@@ -530,10 +557,30 @@ Un proyecto que combina solidez estructural, funcionalidad y estética, cumplien
   ];
 
   for (const proyecto of proyectos) {
+    // Find the service by slug to get the ID
+    const servicio = await prisma.servicio.findFirst({
+      where: {
+        slug: (proyecto as any).tipo_servicio_slug,
+        idioma: 'ES'
+      }
+    });
+
+    if (!servicio) {
+      console.warn(`⚠️ Service not found for slug: ${(proyecto as any).tipo_servicio_slug}`);
+      continue;
+    }
+
+    // Create project data with servicio_id instead of tipo_servicio_slug
+    const { tipo_servicio_slug, ...proyectoData } = proyecto as any;
+    const proyectoWithServiceId = {
+      ...proyectoData,
+      servicio_id: servicio.id,
+    };
+
     await prisma.proyecto.upsert({
       where: { slug: proyecto.slug },
       update: {},
-      create: proyecto,
+      create: proyectoWithServiceId,
     });
   }
 

@@ -109,7 +109,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
               <div className="flex items-center space-x-3 mb-4">
                 {proyecto.servicio && (
                   <Link
-                    href={`/servicios/${proyecto.servicio.slug}`}
+                    href="/servicios"
                     className="px-3 py-1 text-sm bg-outer-space text-platinum rounded-full hover:bg-outer-space/80 transition-colors"
                   >
                     {proyecto.servicio.titulo}
@@ -167,7 +167,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
                   </Link>
                   {proyecto.servicio && (
                     <Link
-                      href={`/servicios/${proyecto.servicio.slug}`}
+                      href="/servicios"
                       className="btn btn-secondary w-full text-center"
                     >
                       Ver servicio: {proyecto.servicio.titulo}
