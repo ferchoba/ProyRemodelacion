@@ -1,33 +1,57 @@
 import { Ratelimit } from '@upstash/ratelimit';
 import { Redis } from '@upstash/redis';
 
-// Configuración de Redis (usando memoria local para desarrollo)
-// Usar Map simple para desarrollo local
-const redis = new Map();
+// Helper seguro para crear cliente Redis solo con credenciales válidas
+function getRedisClient(): Redis | undefined {
+  try {
+    const url = process.env.UPSTASH_REDIS_REST_URL;
+    const token = process.env.UPSTASH_REDIS_REST_TOKEN;
+
+    // Validar que la URL sea https y que no sean placeholders
+    const looksValid =
+      typeof url === 'string' &&
+      url.startsWith('https://') &&
+      !/your_upstash_redis_url/i.test(url) &&
+      typeof token === 'string' &&
+      token.length > 10 &&
+      !/your_upstash_redis_token/i.test(token);
+
+    if (!looksValid) return undefined;
+
+    return new Redis({ url, token });
+  } catch (e) {
+    console.warn('Upstash Redis no se inicializó (se usará modo sin rate-limit):', e);
+    return undefined;
+  }
+}
+
+const redisClient = getRedisClient();
+
+function createLimiter(limit: number, window: `${number} m` | `${number} s`, prefix: string) {
+  if (!redisClient) {
+    // Wrapper que simula éxito cuando no hay Redis configurado
+    const noop = {
+      limit: async (_id: string) => ({ success: true, limit: 0, remaining: 0, reset: Date.now() + 60_000 }),
+    } as unknown as Ratelimit;
+    return noop;
+  }
+
+  return new Ratelimit({
+    redis: redisClient,
+    limiter: Ratelimit.slidingWindow(limit, window),
+    analytics: true,
+    prefix,
+  });
+}
 
 // Rate limiter para formularios (más restrictivo)
-export const formRateLimit = new Ratelimit({
-  redis: redis,
-  limiter: Ratelimit.slidingWindow(3, '10 m'), // 3 requests por 10 minutos
-  analytics: true,
-  prefix: 'form_ratelimit',
-});
+export const formRateLimit = createLimiter(3, '10 m', 'form_ratelimit');
 
 // Rate limiter para API general (menos restrictivo)
-export const apiRateLimit = new Ratelimit({
-  redis: redis,
-  limiter: Ratelimit.slidingWindow(30, '1 m'), // 30 requests por minuto
-  analytics: true,
-  prefix: 'api_ratelimit',
-});
+export const apiRateLimit = createLimiter(30, '1 m', 'api_ratelimit');
 
 // Rate limiter para páginas estáticas (muy permisivo)
-export const pageRateLimit = new Ratelimit({
-  redis: redis,
-  limiter: Ratelimit.slidingWindow(100, '1 m'), // 100 requests por minuto
-  analytics: true,
-  prefix: 'page_ratelimit',
-});
+export const pageRateLimit = createLimiter(100, '1 m', 'page_ratelimit');
 
 // Función para obtener IP del cliente
 export function getClientIP(request: Request): string {

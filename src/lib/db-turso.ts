@@ -1,47 +1,35 @@
 // lib/db-turso.ts
+// Este archivo ya no es necesario con la migración completa a Turso,
+// pero lo dejamos como wrapper fino que usa siempre Turso sin fallback.
 import { PrismaClient } from '@prisma/client'
 import { PrismaLibSQL } from '@prisma/adapter-libsql'
 import { createClient } from '@libsql/client'
 
 const globalForPrisma = globalThis as unknown as {
   prisma: PrismaClient | undefined
-  turso: PrismaClient | undefined
 }
 
-// Cliente SQLite (desarrollo)
-export const sqliteDb = globalForPrisma.prisma ?? new PrismaClient({
-  log: ['query'],
-})
+function getTursoPrisma(): PrismaClient {
+  const url = process.env.TURSO_DATABASE_URL
+  const authToken = process.env.TURSO_AUTH_TOKEN
 
-if (process.env.NODE_ENV !== 'production') {
-  globalForPrisma.prisma = sqliteDb
-}
-
-// Cliente Turso (producción y testing)
-let tursoDb: PrismaClient
-
-if (process.env.TURSO_DATABASE_URL && process.env.TURSO_AUTH_TOKEN) {
-  const libsql = createClient({
-    url: process.env.TURSO_DATABASE_URL,
-    authToken: process.env.TURSO_AUTH_TOKEN,
-  })
-  
-  const adapter = new PrismaLibSQL(libsql)
-  tursoDb = globalForPrisma.turso ?? new PrismaClient({ 
-    adapter,
-    log: ['query', 'error']
-  })
-  
-  if (process.env.NODE_ENV !== 'production') {
-    globalForPrisma.turso = tursoDb
+  if (!url || !authToken) {
+    throw new Error('Faltan variables de entorno TURSO_DATABASE_URL y/o TURSO_AUTH_TOKEN')
   }
-} else {
-  // Fallback a SQLite si no hay credenciales de Turso
-  tursoDb = sqliteDb
+
+  if (globalForPrisma.prisma) return globalForPrisma.prisma
+
+  const libsql = createClient({ url, authToken })
+  const adapter = new PrismaLibSQL(libsql)
+
+  const prisma = new PrismaClient({ adapter, log: ['error'] })
+
+  if (process.env.NODE_ENV !== 'production') {
+    globalForPrisma.prisma = prisma
+  }
+
+  return prisma
 }
 
-// Exportar cliente principal (Turso en producción, SQLite en desarrollo)
-export const db = process.env.NODE_ENV === 'production' ? tursoDb : sqliteDb
-
-// Exportar cliente específico de Turso para migración
-export const tursoClient = tursoDb
+export const db = getTursoPrisma()
+export const tursoClient = db
