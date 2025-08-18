@@ -1,9 +1,9 @@
-import nodemailer from 'nodemailer';
+import nodemailer, { Transporter } from 'nodemailer';
 
 // Configuración del transporter SMTP con fallback seguro en desarrollo
 const hasSMTP = Boolean(process.env.SMTP_HOST || process.env.SMTP_USER);
 
-const transporter = hasSMTP
+const transporter: Transporter = hasSMTP
   ? nodemailer.createTransport({
       host: process.env.SMTP_HOST || 'smtp.gmail.com',
       port: parseInt(process.env.SMTP_PORT || '587'),

@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useTranslations } from 'next-intl';
 import { contactFormSchema, type ContactFormData } from '@/lib/validations/forms';
 
 interface ContactFormProps {
@@ -84,7 +83,7 @@ export default function ContactForm({ className = '' }: ContactFormProps) {
           'expired-callback': () => resolve(null),
           'error-callback': () => resolve(null),
         });
-      } catch (e) {
+      } catch {
         resolve(null);
       }
     });
@@ -117,9 +116,9 @@ export default function ContactForm({ className = '' }: ContactFormProps) {
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
+  const handleSubmit = async (_e: React.FormEvent) => {
+    _e.preventDefault();
+
     if (!validateForm()) {
       return;
     }

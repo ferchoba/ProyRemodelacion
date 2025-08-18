@@ -54,20 +54,16 @@ export async function POST(request: NextRequest) {
     // Validar reCAPTCHA v3 primero
     const recaptchaV3Result = await validateRecaptchaV3(recaptchaToken, 'quote');
     
-    let recaptchaValid = false;
     let recaptchaScore: number | undefined;
 
     if (recaptchaV3Result.success) {
-      recaptchaValid = true;
       recaptchaScore = recaptchaV3Result.score;
     } else {
       // Fallback a reCAPTCHA v2 si v3 falla
       console.log('reCAPTCHA v3 falló, intentando v2:', recaptchaV3Result.error);
       const recaptchaV2Result = await validateRecaptchaV2(recaptchaToken);
-      
-      if (recaptchaV2Result.success) {
-        recaptchaValid = true;
-      } else {
+
+      if (!recaptchaV2Result.success) {
         return NextResponse.json(
           { error: 'Verificación reCAPTCHA fallida. Por favor intenta nuevamente.' },
           { status: 400 }

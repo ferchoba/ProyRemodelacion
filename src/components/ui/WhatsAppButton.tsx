@@ -2,7 +2,6 @@
 
 import { useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
-import { getWhatsAppNumber } from '@/lib/repos/parametros';
 
 interface WhatsAppButtonProps {
   className?: string;

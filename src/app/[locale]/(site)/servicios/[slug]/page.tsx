@@ -5,7 +5,6 @@ import Image from 'next/image';
 import { getServicioBySlug, getAllServicios } from '@/lib/repos/servicios';
 import MarkdownRenderer from '@/components/ui/MarkdownRenderer';
 import { Link } from '@/i18n/routing';
-import SafeImage from '@/components/ui/SafeImage';
 
 export const revalidate = 86400; // ISR: revalidate every 24 hours
 

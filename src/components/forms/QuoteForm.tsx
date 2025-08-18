@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { useTranslations } from 'next-intl';
 import { quoteFormSchema, type QuoteFormData } from '@/lib/validations/forms';
 
 interface QuoteFormProps {
@@ -10,22 +9,6 @@ interface QuoteFormProps {
 }
 
 export default function QuoteForm({ className = '' }: QuoteFormProps) {
-  // Usar traducciones hardcodeadas por ahora para evitar errores de contexto
-  const t = (key: string) => {
-    const translations: Record<string, string> = {
-      'form.name': 'Nombre completo',
-      'form.email': 'Email',
-      'form.phone': 'Teléfono',
-      'form.service_type': 'Tipo de Servicio',
-      'form.project_description': 'Descripción del Proyecto',
-      'form.estimated_budget': 'Presupuesto Estimado',
-      'form.start_date': 'Fecha de Inicio Deseada',
-      'form.send': 'Solicitar Cotización',
-      'form.sending': 'Enviando Solicitud...',
-      'form.privacy_notice': 'Al enviar este formulario, aceptas nuestra política de privacidad y el tratamiento de tus datos personales.'
-    };
-    return translations[key] || key;
-  };
   const router = useRouter();
   
   const [formData, setFormData] = useState<Partial<QuoteFormData>>({
@@ -106,7 +89,7 @@ export default function QuoteForm({ className = '' }: QuoteFormProps) {
           'expired-callback': () => resolve(null),
           'error-callback': () => resolve(null),
         });
-      } catch (e) {
+      } catch {
         resolve(null);
       }
     });
@@ -139,9 +122,9 @@ export default function QuoteForm({ className = '' }: QuoteFormProps) {
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
+  const handleSubmit = async (_e: React.FormEvent) => {
+    _e.preventDefault();
+
     if (!validateForm()) {
       return;
     }

@@ -5,7 +5,6 @@ import { getProyectoBySlug, getAllProyectos } from '@/lib/repos/proyectos';
 import MarkdownRenderer from '@/components/ui/MarkdownRenderer';
 import ProjectGallery from '@/components/ui/ProjectGallery';
 import { Link } from '@/i18n/routing';
-import SafeImage from '@/components/ui/SafeImage';
 
 export const revalidate = 86400; // ISR: revalidate every 24 hours
 
@@ -67,7 +66,6 @@ export async function generateMetadata({ params }: ProjectDetailPageProps): Prom
 
 export default async function ProjectDetailPage({ params }: ProjectDetailPageProps) {
   const t = await getTranslations('projects');
-  const tContact = await getTranslations('contact');
   const proyecto = await getProyectoBySlug(params.slug);
 
   if (!proyecto) {

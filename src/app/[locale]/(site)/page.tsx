@@ -30,7 +30,6 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function HomePage() {
   const t = useTranslations('home');
-  const tNav = useTranslations('navigation');
 
   return (
     <div>
