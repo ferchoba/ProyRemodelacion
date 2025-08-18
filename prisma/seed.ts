@@ -1,9 +1,16 @@
-import { PrismaClient } from '@prisma/client';
+import { db } from '../src/lib/db';
 
-const prisma = new PrismaClient();
+const prisma = db;
 
 async function main() {
   console.log('🌱 Starting seed...');
+
+  // Verificar que las variables de entorno estén disponibles
+  if (!process.env.TURSO_DATABASE_URL || !process.env.TURSO_AUTH_TOKEN) {
+    console.log('⚠️ Turso environment variables not available. Skipping seed.');
+    console.log('This is normal during Vercel build process.');
+    return;
+  }
 
   // Seed parameters
   await prisma.parametro.upsert({
