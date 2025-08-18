@@ -2,8 +2,6 @@ import { NextRequest, NextResponse } from 'next/server';
 import { db } from '@/lib/db';
 import {
   quoteFormSchema,
-  validateRecaptchaV3,
-  validateRecaptchaV2,
   formatPhoneNumber,
   sanitizeText
 } from '@/lib/validations/forms';
@@ -40,36 +38,15 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { 
-      nombre, 
-      email, 
-      telefono, 
-      tipoServicio, 
-      descripcionProyecto, 
-      presupuestoEstimado, 
-      fechaInicio, 
-      recaptchaToken 
+    const {
+      nombre,
+      email,
+      telefono,
+      tipoServicio,
+      descripcionProyecto,
+      presupuestoEstimado,
+      fechaInicio
     } = validationResult.data;
-
-    // Validar reCAPTCHA v3 primero
-    const recaptchaV3Result = await validateRecaptchaV3(recaptchaToken, 'quote');
-    
-    let recaptchaScore: number | undefined;
-
-    if (recaptchaV3Result.success) {
-      recaptchaScore = recaptchaV3Result.score;
-    } else {
-      // Fallback a reCAPTCHA v2 si v3 falla
-      console.log('reCAPTCHA v3 falló, intentando v2:', recaptchaV3Result.error);
-      const recaptchaV2Result = await validateRecaptchaV2(recaptchaToken);
-
-      if (!recaptchaV2Result.success) {
-        return NextResponse.json(
-          { error: 'Verificación reCAPTCHA fallida. Por favor intenta nuevamente.' },
-          { status: 400 }
-        );
-      }
-    }
 
     // Sanitizar datos
     const sanitizedData = {
@@ -91,7 +68,6 @@ export async function POST(request: NextRequest) {
         telefono: sanitizedData.telefono,
         tipo_servicio: sanitizedData.tipoServicio,
         descripcion: `${sanitizedData.descripcionProyecto}\n\nPresupuesto estimado: ${sanitizedData.presupuestoEstimado}\nFecha inicio deseada: ${sanitizedData.fechaInicio || 'No especificada'}`,
-        recaptcha_score: recaptchaScore,
         ip: request.ip || 'unknown',
       },
     });

@@ -1,13 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { db } from '@/lib/db';
 import {
-  contactFormSchema,
+  quoteFormSchema,
+  validateRecaptchaV3,
+  validateRecaptchaV2,
   formatPhoneNumber,
   sanitizeText
 } from '@/lib/validations/forms';
 import {
   sendEmail,
-  generateContactEmailTemplate,
+  generateQuoteEmailTemplate,
   generateUserConfirmationTemplate
 } from '@/lib/email';
 import { getEmailDestino } from '@/lib/repos/parametros';
@@ -17,7 +19,7 @@ export async function POST(request: NextRequest) {
   try {
     // Aplicar rate limiting adicional específico para formularios
     const clientIP = getClientIP(request);
-    const rateLimitResult = await applyRateLimit(formRateLimit, `contact_${clientIP}`);
+    const rateLimitResult = await applyRateLimit(formRateLimit, `quote_${clientIP}`);
 
     if (!rateLimitResult.success) {
       return createRateLimitResponse(rateLimitResult);
@@ -26,7 +28,7 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     
     // Validar datos del formulario
-    const validationResult = contactFormSchema.safeParse(body);
+    const validationResult = quoteFormSchema.safeParse(body);
     
     if (!validationResult.success) {
       return NextResponse.json(
@@ -38,24 +40,58 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { nombre, email, telefono, mensaje } = validationResult.data;
+    const { 
+      nombre, 
+      email, 
+      telefono, 
+      tipoServicio, 
+      descripcionProyecto, 
+      presupuestoEstimado, 
+      fechaInicio, 
+      recaptchaToken 
+    } = validationResult.data;
+
+    // Validar reCAPTCHA v3 primero
+    const recaptchaV3Result = await validateRecaptchaV3(recaptchaToken, 'quote');
+    
+    let recaptchaScore: number | undefined;
+
+    if (recaptchaV3Result.success) {
+      recaptchaScore = recaptchaV3Result.score;
+    } else {
+      // Fallback a reCAPTCHA v2 si v3 falla
+      console.log('reCAPTCHA v3 falló, intentando v2:', recaptchaV3Result.error);
+      const recaptchaV2Result = await validateRecaptchaV2(recaptchaToken);
+
+      if (!recaptchaV2Result.success) {
+        return NextResponse.json(
+          { error: 'Verificación reCAPTCHA fallida. Por favor intenta nuevamente.' },
+          { status: 400 }
+        );
+      }
+    }
 
     // Sanitizar datos
     const sanitizedData = {
       nombre: sanitizeText(nombre),
       email: email.toLowerCase().trim(),
-      telefono: telefono ? formatPhoneNumber(telefono) : null,
-      mensaje: sanitizeText(mensaje),
+      telefono: formatPhoneNumber(telefono),
+      tipoServicio: sanitizeText(tipoServicio),
+      descripcionProyecto: sanitizeText(descripcionProyecto),
+      presupuestoEstimado: presupuestoEstimado ? sanitizeText(presupuestoEstimado) : null,
+      fechaInicio: fechaInicio || null,
     };
 
     // Guardar en base de datos
-    const formularioContacto = await db.formulario.create({
+    const formularioCotizacion = await db.formulario.create({
       data: {
-        tipo: 'contacto',
+        tipo: 'cotizacion',
         nombre: sanitizedData.nombre,
         email: sanitizedData.email,
         telefono: sanitizedData.telefono,
-        descripcion: sanitizedData.mensaje,
+        tipo_servicio: sanitizedData.tipoServicio,
+        descripcion: `${sanitizedData.descripcionProyecto}\n\nPresupuesto estimado: ${sanitizedData.presupuestoEstimado}\nFecha inicio deseada: ${sanitizedData.fechaInicio || 'No especificada'}`,
+        recaptcha_score: recaptchaScore,
         ip: request.ip || 'unknown',
       },
     });
@@ -64,8 +100,11 @@ export async function POST(request: NextRequest) {
     const emailData = {
       nombre: sanitizedData.nombre,
       email: sanitizedData.email,
-      telefono: sanitizedData.telefono || undefined,
-      mensaje: sanitizedData.mensaje,
+      telefono: sanitizedData.telefono,
+      tipoServicio: sanitizedData.tipoServicio,
+      descripcionProyecto: sanitizedData.descripcionProyecto,
+      presupuestoEstimado: sanitizedData.presupuestoEstimado || undefined,
+      fechaInicio: sanitizedData.fechaInicio ? new Date(sanitizedData.fechaInicio).toLocaleDateString('es-CO') : undefined,
       fecha: new Date().toLocaleString('es-CO', {
         timeZone: 'America/Bogota',
         year: 'numeric',
@@ -80,7 +119,7 @@ export async function POST(request: NextRequest) {
     const emailDestino = await getEmailDestino();
 
     // Enviar email de notificación al equipo
-    const adminEmailTemplate = generateContactEmailTemplate(emailData);
+    const adminEmailTemplate = generateQuoteEmailTemplate(emailData);
     const adminEmailResult = await sendEmail({
       to: emailDestino,
       subject: adminEmailTemplate.subject,
@@ -91,7 +130,7 @@ export async function POST(request: NextRequest) {
     // Enviar email de confirmación al usuario
     const userEmailTemplate = generateUserConfirmationTemplate({
       nombre: sanitizedData.nombre,
-      tipo: 'contacto',
+      tipo: 'cotizacion',
     });
     const userEmailResult = await sendEmail({
       to: sanitizedData.email,
@@ -112,8 +151,8 @@ export async function POST(request: NextRequest) {
     // Respuesta exitosa
     return NextResponse.json({
       success: true,
-      message: 'Mensaje enviado exitosamente',
-      id: formularioContacto.id,
+      message: 'Solicitud de cotización enviada exitosamente',
+      id: formularioCotizacion.id,
       emailsSent: {
         admin: adminEmailResult.success,
         user: userEmailResult.success,
@@ -121,7 +160,7 @@ export async function POST(request: NextRequest) {
     });
 
   } catch (error) {
-    console.error('Error procesando formulario de contacto:', error);
+    console.error('Error procesando formulario de cotización:', error);
     
     return NextResponse.json(
       { error: 'Error interno del servidor. Por favor intenta nuevamente.' },

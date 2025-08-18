@@ -27,6 +27,10 @@ export const contactFormSchema = z.object({
     .string()
     .min(10, 'El mensaje debe tener al menos 10 caracteres')
     .max(2000, 'El mensaje no puede exceder 2000 caracteres'),
+  
+  recaptchaToken: z
+    .string()
+    .min(1, 'Verificación reCAPTCHA requerida'),
 });
 
 // Esquema de validación para formulario de cotización
@@ -74,11 +78,110 @@ export const quoteFormSchema = z.object({
       today.setHours(0, 0, 0, 0);
       return date >= today;
     }, 'La fecha de inicio debe ser hoy o en el futuro'),
+  
+  recaptchaToken: z
+    .string()
+    .min(1, 'Verificación reCAPTCHA requerida'),
 });
 
 // Tipos TypeScript derivados de los esquemas
 export type ContactFormData = z.infer<typeof contactFormSchema>;
 export type QuoteFormData = z.infer<typeof quoteFormSchema>;
+
+// Función para validar reCAPTCHA v3
+export async function validateRecaptchaV3(token: string, action: string): Promise<{
+  success: boolean;
+  score?: number;
+  error?: string;
+}> {
+  try {
+    const response = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: new URLSearchParams({
+        secret: process.env.RECAPTCHA_SECRET_V3 || '',
+        response: token,
+      }),
+    });
+
+    const data = await response.json();
+
+    if (!data.success) {
+      return {
+        success: false,
+        error: 'Verificación reCAPTCHA fallida',
+      };
+    }
+
+    // Verificar score (debe ser >= 0.5 según criterios)
+    if (data.score < 0.5) {
+      return {
+        success: false,
+        score: data.score,
+        error: 'Score de reCAPTCHA muy bajo, posible bot',
+      };
+    }
+
+    // Verificar acción
+    if (data.action !== action) {
+      return {
+        success: false,
+        error: 'Acción de reCAPTCHA no coincide',
+      };
+    }
+
+    return {
+      success: true,
+      score: data.score,
+    };
+  } catch (error) {
+    console.error('Error validando reCAPTCHA v3:', error);
+    return {
+      success: false,
+      error: 'Error interno validando reCAPTCHA',
+    };
+  }
+}
+
+// Función para validar reCAPTCHA v2 (fallback)
+export async function validateRecaptchaV2(token: string): Promise<{
+  success: boolean;
+  error?: string;
+}> {
+  try {
+    const response = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: new URLSearchParams({
+        secret: process.env.RECAPTCHA_SECRET_V2 || '',
+        response: token,
+      }),
+    });
+
+    const data = await response.json();
+
+    if (!data.success) {
+      return {
+        success: false,
+        error: 'Verificación reCAPTCHA fallida',
+      };
+    }
+
+    return {
+      success: true,
+    };
+  } catch (error) {
+    console.error('Error validando reCAPTCHA v2:', error);
+    return {
+      success: false,
+      error: 'Error interno validando reCAPTCHA',
+    };
+  }
+}
 
 // Función para limpiar y formatear número de teléfono
 export function formatPhoneNumber(phone: string): string {

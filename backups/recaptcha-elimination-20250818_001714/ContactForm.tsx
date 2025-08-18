@@ -37,8 +37,57 @@ export default function ContactForm({ className = '' }: ContactFormProps) {
   
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showRecaptchaV2, setShowRecaptchaV2] = useState(false);
 
+  // Función para obtener token reCAPTCHA v3
+  const getRecaptchaV3Token = async (): Promise<string | null> => {
+    return new Promise((resolve) => {
+      if (typeof window !== 'undefined' && window.grecaptcha) {
+        window.grecaptcha.ready(() => {
+          window.grecaptcha
+            .execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY_V3!, { action: 'contact' })
+            .then((token: string) => {
+              resolve(token);
+            })
+            .catch(() => {
+              resolve(null);
+            });
+        });
+      } else {
+        resolve(null);
+      }
+    });
+  };
 
+  // Función para obtener token reCAPTCHA v2
+  const getRecaptchaV2Token = async (): Promise<string | null> => {
+    // Esperar a que el contenedor exista en el DOM y el script de reCAPTCHA esté cargado
+    const waitFor = async (check: () => boolean, attempts = 20, interval = 50): Promise<boolean> => {
+      for (let i = 0; i < attempts; i++) {
+        if (check()) return true;
+        await new Promise((r) => setTimeout(r, interval));
+      }
+      return false;
+    };
+
+    // Asegurar que el contenedor esté presente
+    const ready = await waitFor(() => typeof window !== 'undefined' && !!document.getElementById('recaptcha-v2') && !!window.grecaptcha);
+    if (!ready) return null;
+
+    return new Promise((resolve) => {
+      try {
+        const container = document.getElementById('recaptcha-v2')!;
+        window.grecaptcha.render(container, {
+          sitekey: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY_V2!,
+          callback: (token: string) => resolve(token),
+          'expired-callback': () => resolve(null),
+          'error-callback': () => resolve(null),
+        });
+      } catch {
+        resolve(null);
+      }
+    });
+  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -52,13 +101,15 @@ export default function ContactForm({ className = '' }: ContactFormProps) {
 
   const validateForm = (): boolean => {
     try {
-      contactFormSchema.parse(formData);
+      contactFormSchema.parse({ ...formData, recaptchaToken: 'temp' });
       setErrors({});
       return true;
     } catch (error: any) {
       const newErrors: Record<string, string> = {};
       error.errors?.forEach((err: any) => {
-        newErrors[err.path[0]] = err.message;
+        if (err.path[0] !== 'recaptchaToken') {
+          newErrors[err.path[0]] = err.message;
+        }
       });
       setErrors(newErrors);
       return false;
@@ -76,13 +127,31 @@ export default function ContactForm({ className = '' }: ContactFormProps) {
     setErrors({});
 
     try {
+      // Intentar obtener token reCAPTCHA v3 primero
+      let recaptchaToken = await getRecaptchaV3Token();
+      
+      if (!recaptchaToken) {
+        // Si v3 falla, mostrar v2
+        setShowRecaptchaV2(true);
+        recaptchaToken = await getRecaptchaV2Token();
+        
+        if (!recaptchaToken) {
+          setErrors({ recaptcha: 'Verificación reCAPTCHA requerida' });
+          setIsSubmitting(false);
+          return;
+        }
+      }
+
       // Enviar formulario
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          recaptchaToken,
+        }),
       });
 
       const result = await response.json();
@@ -219,7 +288,17 @@ export default function ContactForm({ className = '' }: ContactFormProps) {
         )}
       </div>
 
-
+      {/* reCAPTCHA v2 (solo si es necesario) */}
+      {showRecaptchaV2 && (
+        <div>
+          <div id="recaptcha-v2"></div>
+          {errors.recaptcha && (
+            <p className="mt-1 text-sm text-red-600" role="alert">
+              {errors.recaptcha}
+            </p>
+          )}
+        </div>
+      )}
 
       {/* Botón de envío */}
       <button
